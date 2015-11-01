@@ -22,11 +22,17 @@ class Filter: NSObject {
         return [Filter("HH-01"), Filter("SV-03"), Filter("VH-05")]
     }
     
+    static func addFilter() {
+        filters.append(Filter("#unnamed"))
+    }
+    
     // Instance variables
     var name: String
+    var value: Float
     
     // Instance methods
     init(_ theName: String) {
         name = theName
+        value = 0.0
     }
 }

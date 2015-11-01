@@ -13,6 +13,7 @@ class FilterEditorViewController: UIViewController {
     var editFilter: Filter!
     
     @IBOutlet var editName: UITextField!
+    @IBOutlet var value: UISlider!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +21,7 @@ class FilterEditorViewController: UIViewController {
         // Do any additional setup after loading the view.
         editFilter = Filter.filters[Filter.rowToEdit]
         editName.text = editFilter.name
-
+        value.value = editFilter.value
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,6 +29,15 @@ class FilterEditorViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    @IBAction func updateValue(sender: UISlider) {
+        editFilter.value = sender.value
+    }
+    
+    @IBAction func startEditingName(sender: UITextField) {
+        NSLog("Start editing name")
+        performSegueWithIdentifier("showNameEditor", sender: self)
+    }
 
     /*
     // MARK: - Navigation

@@ -17,13 +17,23 @@ class FilterTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
+        self.navigationItem.leftBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - UI actions
+    
+    @IBOutlet var addButton: UIBarButtonItem!
+    @IBAction func addAction(sender: AnyObject) {
+        NSLog("addAction")
+        Filter.addFilter()
+        self.tableView.reloadData()
+        Filter.rowToEdit = Filter.filters.count - 1
+        performSegueWithIdentifier("showFilterEditor", sender: self)
     }
 
     // MARK: - Table view data source
@@ -72,7 +82,7 @@ class FilterTableViewController: UITableViewController {
         // To check for correctness enable: self.tableView.reloadData()
     }
 
-    /*
+     /*
     // Override to support conditional rearranging of the table view.
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
