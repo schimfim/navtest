@@ -104,19 +104,17 @@
                     <connections>
                         <outlet property="editName" destination="fQu-Gh-T1y" id="MTN-AH-Jpx"/>
                         <outlet property="value" destination="Slx-95-b3p" id="m6g-XK-QX9"/>
-                        <segue destination="PZM-ZB-3sf" kind="popoverPresentation" identifier="showNameEditor" popoverAnchorView="fQu-Gh-T1y" id="869-s2-alp">
-                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                        </segue>
+                        <segue destination="PZM-ZB-3sf" kind="presentation" identifier="showNameEditor" id="869-s2-alp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q0i-ge-VDr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="998" y="980"/>
         </scene>
-        <!--View Controller-->
+        <!--Name EditorVC-->
         <scene sceneID="ZVb-0z-gFS">
             <objects>
-                <viewController id="PZM-ZB-3sf" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="formSheet" id="PZM-ZB-3sf" customClass="NameEditorVC" customModule="navtest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="C8V-Jl-Y7x"/>
                         <viewControllerLayoutGuide type="bottom" id="NRt-av-fSJ"/>
@@ -126,13 +124,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Edit name" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2li-jZ-HXq">
-                                <rect key="frame" x="57" y="20" width="486" height="30"/>
+                                <rect key="frame" x="57" y="0.0" width="486" height="30"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="486" id="NOX-zC-Y5W"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="endEdit:" destination="PZM-ZB-3sf" eventType="editingDidEndOnExit" id="3Nr-Va-eAI"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <animations/>
@@ -142,6 +143,9 @@
                             <constraint firstItem="2li-jZ-HXq" firstAttribute="top" secondItem="C8V-Jl-Y7x" secondAttribute="bottom" id="WlX-Nk-bRh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="nameField" destination="2li-jZ-HXq" id="wxV-0h-SqT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MgX-2f-3On" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
