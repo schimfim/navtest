@@ -95,6 +95,15 @@ class FilterTableViewController: UITableViewController {
         Filter.rowToEdit = indexPath.row
     }
     
+    // MARK: - Table view delegate
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        Filter.setInImage(Filter.origImage)
+        Filter.setCurrentFilter(indexPath.row)
+        let out = Filter.processCurrentFilter()
+        Filter.resultImage.image = out
+    }
+    
     // MARK: - Navigation
 
     /*

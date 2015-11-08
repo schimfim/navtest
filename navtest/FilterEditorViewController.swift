@@ -21,7 +21,8 @@ class FilterEditorViewController: UIViewController {
         // Do any additional setup after loading the view.
         editFilter = Filter.filters[Filter.rowToEdit]
         editName.text = editFilter.name
-        value.value = editFilter.value
+        value.value = editFilter.value / 360
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,7 +32,7 @@ class FilterEditorViewController: UIViewController {
     
     
     @IBAction func updateValue(sender: UISlider) {
-        editFilter.value = sender.value
+        editFilter.value = sender.value * 360
     }
     
     @IBAction func startEditingName(sender: UITextField) {

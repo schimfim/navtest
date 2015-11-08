@@ -115,7 +115,7 @@
                                     <action selector="startEditingName:" destination="bLh-TP-XMO" eventType="editingDidBegin" id="hIt-8Y-4Uh"/>
                                 </connections>
                             </textField>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Slx-95-b3p">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Slx-95-b3p">
                                 <rect key="frame" x="54" y="90" width="452" height="31"/>
                                 <animations/>
                                 <connections>
