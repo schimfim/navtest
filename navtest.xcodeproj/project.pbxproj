@@ -62,6 +62,7 @@
 		7770ABB11BDAD2F600630053 /* navtest */ = {
 			isa = PBXGroup;
 			children = (
+				777E780D1BF3EE7F009864B7 /* Filters */,
 				7770ABB21BDAD2F600630053 /* AppDelegate.swift */,
 				7770ABB41BDAD2F600630053 /* ViewController.swift */,
 				77F21F361BDC5151002BF476 /* FilterTableViewController.swift */,
@@ -74,6 +75,13 @@
 				7770ABBE1BDAD2F600630053 /* Info.plist */,
 			);
 			path = navtest;
+			sourceTree = "<group>";
+		};
+		777E780D1BF3EE7F009864B7 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Filters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
