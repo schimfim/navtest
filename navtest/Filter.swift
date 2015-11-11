@@ -30,10 +30,9 @@ class Filter: NSObject {
     
     static func addFilter(type: String) {
     	var newFilter: Filter!
-    	switch(type):
-    		case "Aged": newFilter = Filter("#unnamed")
-    		case "cxf" : newFilter = FColorXfer("#unnamed")
-    	
+        switch type {
+    		default: newFilter = Filter("#unnamed")
+        }
         filters.append(newFilter)
     }
     

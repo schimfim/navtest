@@ -34,7 +34,7 @@
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="QtZ-9n-Lq9">
                                         <rect key="frame" x="8" y="8" width="544" height="344"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="WDA-vB-GjH">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="WDA-vB-GjH">
                                                 <rect key="frame" x="8" y="8" width="483" height="640"/>
                                                 <animations/>
                                                 <gestureRecognizers/>
@@ -97,7 +97,7 @@
         <!--Filter Editor View Controller-->
         <scene sceneID="VY7-ed-OEd">
             <objects>
-                <viewController id="bLh-TP-XMO" customClass="FilterEditorViewController" customModule="navtest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" id="bLh-TP-XMO" customClass="FilterEditorViewController" customModule="navtest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kck-IX-SYP"/>
                         <viewControllerLayoutGuide type="bottom" id="8Cv-QK-R20"/>
@@ -122,6 +122,10 @@
                                     <action selector="updateValue:" destination="bLh-TP-XMO" eventType="valueChanged" id="bBA-NY-5Ln"/>
                                 </connections>
                             </slider>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KFS-Hw-1T1" userLabel="Editor area">
+                                <rect key="frame" x="20" y="128" width="520" height="64"/>
+                                <animations/>
+                            </containerView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -135,14 +139,23 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="Container" destination="KFS-Hw-1T1" id="Pqx-aK-LPa"/>
                         <outlet property="editName" destination="fQu-Gh-T1y" id="MTN-AH-Jpx"/>
                         <outlet property="value" destination="Slx-95-b3p" id="m6g-XK-QX9"/>
                         <segue destination="PZM-ZB-3sf" kind="presentation" identifier="showNameEditor" id="869-s2-alp"/>
+                        <segue destination="S7u-o9-IvI" kind="custom" id="mxy-yM-QgV"/>
+                        <segue destination="rKQ-mL-05h" kind="custom" identifier="showBlue" id="Xwn-MC-RxJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q0i-ge-VDr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="hP0-q8-Rz7">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </objects>
-            <point key="canvasLocation" x="998" y="980"/>
+            <point key="canvasLocation" x="984" y="954"/>
         </scene>
         <!--Name EditorVC-->
         <scene sceneID="ZVb-0z-gFS">
@@ -260,6 +273,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Scy-Kc-gNl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="205" y="980.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="s8q-mX-KmK">
+            <objects>
+                <viewController storyboardIdentifier="EVCRed" modalPresentationStyle="currentContext" id="S7u-o9-IvI" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Dpd-vm-4Xz">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="150"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UUG-3I-cMd">
+                                <rect key="frame" x="229" y="16" width="51" height="31"/>
+                                <animations/>
+                            </switch>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0DY-Cy-YMa">
+                                <rect key="frame" x="43" y="93" width="299" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="startEditingName:" destination="bLh-TP-XMO" eventType="editingDidBegin" id="eNE-5e-Mog"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="400" height="150"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="psB-S0-rWr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="747" y="1334"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="eTn-4o-keS">
+            <objects>
+                <viewController storyboardIdentifier="EVCBlue" modalPresentationStyle="currentContext" id="rKQ-mL-05h" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="S6r-8f-OsG"/>
+                        <viewControllerLayoutGuide type="bottom" id="lsh-XD-AaH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GAF-8Q-ukO">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="150"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1xo-c4-1hp">
+                                <rect key="frame" x="229" y="16" width="51" height="31"/>
+                                <animations/>
+                            </switch>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="400" height="150"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jVu-PK-8Nc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1184" y="1334"/>
         </scene>
     </scenes>
     <resources>

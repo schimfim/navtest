@@ -30,7 +30,7 @@ class FilterTableViewController: UITableViewController {
     @IBOutlet var addButton: UIBarButtonItem!
     @IBAction func addAction(sender: AnyObject) {
         NSLog("addAction")
-        Filter.addFilter()
+        Filter.addFilter("type")
         self.tableView.reloadData()
         Filter.rowToEdit = Filter.filters.count - 1
         performSegueWithIdentifier("showFilterEditor", sender: self)

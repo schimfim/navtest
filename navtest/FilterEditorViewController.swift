@@ -14,6 +14,7 @@ class FilterEditorViewController: UIViewController {
     
     @IBOutlet var editName: UITextField!
     @IBOutlet var value: UISlider!
+    @IBOutlet var container: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,10 @@ class FilterEditorViewController: UIViewController {
         editName.text = editFilter.name
         value.value = editFilter.value / 360
 
+        // Load editor pane
+        if let evc = storyboard?.instantiateViewControllerWithIdentifier("EVCRed") {
+            presentViewController(evc, animated: true, completion: nil)
+        }
     }
 
     override func didReceiveMemoryWarning() {
