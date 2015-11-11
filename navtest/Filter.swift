@@ -28,8 +28,13 @@ class Filter: NSObject {
         return [Filter("HH-01"), Filter("SV-03"), Filter("VH-05")]
     }
     
-    static func addFilter() {
-        filters.append(Filter("#unnamed"))
+    static func addFilter(type: String) {
+    	var newFilter: Filter!
+    	switch(type):
+    		case "Aged": newFilter = Filter("#unnamed")
+    		case "cxf" : newFilter = FColorXfer("#unnamed")
+    	
+        filters.append(newFilter)
     }
     
     static func setInImage(newImage : UIImage) {
