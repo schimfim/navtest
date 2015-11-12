@@ -1,46 +1,36 @@
 //
-//  FilterEditorViewController.swift
+//  ContainerVC.swift
 //  navtest
 //
-//  Created by Frank Reine on 29.10.15.
+//  Created by Frank Reine on 13.11.15.
 //  Copyright © 2015 Frank Reine. All rights reserved.
 //
 
 import UIKit
 
-class FilterEditorViewController: UIViewController {
+class ContainerVC: UIViewController {
 
-    var editFilter: Filter!
-    
-    @IBOutlet var editName: UITextField!
-    @IBOutlet var value: UISlider!
-    @IBOutlet var container: UIView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        editFilter = Filter.filters[Filter.rowToEdit]
-        editName.text = editFilter.name
-        // value.value = editFilter.value / 360
+        // Show filter editor pane
+        //performSegueWithIdentifier("showRed", sender: self)
+        let vc = storyboard?.instantiateViewControllerWithIdentifier("EVCRed")
+        //showViewController(vc!, sender: self)
+        addChildViewController(vc!)
+    }
 
-}
-
+    override func viewWillAppear(animated: Bool) {
+        let vc = storyboard?.instantiateViewControllerWithIdentifier("EVCRed")
+        addChildViewController(vc!)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
-    @IBAction func updateValue(sender: UISlider) {
-        editFilter.value = sender.value * 360
-    }
-    
-    @IBAction func startEditingName(sender: UITextField) {
-        NSLog("Start editing name")
-        performSegueWithIdentifier("showNameEditor", sender: self)
-    }
 
     /*
     // MARK: - Navigation

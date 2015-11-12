@@ -1,46 +1,27 @@
 //
-//  FilterEditorViewController.swift
+//  EditRedFilterVC.swift
 //  navtest
 //
-//  Created by Frank Reine on 29.10.15.
+//  Created by Frank Reine on 12.11.15.
 //  Copyright © 2015 Frank Reine. All rights reserved.
 //
 
 import UIKit
 
-class FilterEditorViewController: UIViewController {
+class EditRedFilterVC: UIViewController {
 
-    var editFilter: Filter!
-    
-    @IBOutlet var editName: UITextField!
-    @IBOutlet var value: UISlider!
-    @IBOutlet var container: UIView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        editFilter = Filter.filters[Filter.rowToEdit]
-        editName.text = editFilter.name
-        // value.value = editFilter.value / 360
+        NSLog("Did load EditRedFilterVC")
+    }
 
-}
-
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
-    @IBAction func updateValue(sender: UISlider) {
-        editFilter.value = sender.value * 360
-    }
-    
-    @IBAction func startEditingName(sender: UITextField) {
-        NSLog("Start editing name")
-        performSegueWithIdentifier("showNameEditor", sender: self)
-    }
 
     /*
     // MARK: - Navigation

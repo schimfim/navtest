@@ -115,36 +115,29 @@
                                     <action selector="startEditingName:" destination="bLh-TP-XMO" eventType="editingDidBegin" id="hIt-8Y-4Uh"/>
                                 </connections>
                             </textField>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Slx-95-b3p">
-                                <rect key="frame" x="54" y="90" width="452" height="31"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oIu-Gi-diq">
+                                <rect key="frame" x="0.0" y="90" width="560" height="110"/>
                                 <animations/>
                                 <connections>
-                                    <action selector="updateValue:" destination="bLh-TP-XMO" eventType="valueChanged" id="bBA-NY-5Ln"/>
+                                    <segue destination="x8c-2Y-jv9" kind="embed" id="Kdo-d4-K2m"/>
                                 </connections>
-                            </slider>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KFS-Hw-1T1" userLabel="Editor area">
-                                <rect key="frame" x="20" y="128" width="520" height="64"/>
-                                <animations/>
                             </containerView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Slx-95-b3p" firstAttribute="centerX" secondItem="QG4-eF-kNq" secondAttribute="centerX" id="7c2-d3-7P2"/>
+                            <constraint firstItem="8Cv-QK-R20" firstAttribute="top" secondItem="oIu-Gi-diq" secondAttribute="bottom" id="HWA-8X-TVP"/>
                             <constraint firstItem="fQu-Gh-T1y" firstAttribute="centerX" secondItem="QG4-eF-kNq" secondAttribute="centerX" id="I89-tB-Kpj"/>
                             <constraint firstItem="fQu-Gh-T1y" firstAttribute="width" secondItem="QG4-eF-kNq" secondAttribute="width" multiplier="0.8" id="Ivt-BA-7wM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oIu-Gi-diq" secondAttribute="trailing" constant="-20" id="VGW-bN-pR9"/>
+                            <constraint firstItem="oIu-Gi-diq" firstAttribute="leading" secondItem="QG4-eF-kNq" secondAttribute="leadingMargin" constant="-20" id="e8o-bd-olg"/>
                             <constraint firstItem="fQu-Gh-T1y" firstAttribute="top" secondItem="Kck-IX-SYP" secondAttribute="bottom" constant="8" id="hdB-cw-pmy"/>
-                            <constraint firstItem="Slx-95-b3p" firstAttribute="top" secondItem="fQu-Gh-T1y" secondAttribute="bottom" constant="8" id="tfp-7p-fB3"/>
-                            <constraint firstItem="Slx-95-b3p" firstAttribute="width" secondItem="fQu-Gh-T1y" secondAttribute="width" id="vcU-Kc-6Fh"/>
+                            <constraint firstItem="oIu-Gi-diq" firstAttribute="top" secondItem="fQu-Gh-T1y" secondAttribute="bottom" constant="8" id="wbB-9R-YQQ"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="Container" destination="KFS-Hw-1T1" id="Pqx-aK-LPa"/>
                         <outlet property="editName" destination="fQu-Gh-T1y" id="MTN-AH-Jpx"/>
-                        <outlet property="value" destination="Slx-95-b3p" id="m6g-XK-QX9"/>
                         <segue destination="PZM-ZB-3sf" kind="presentation" identifier="showNameEditor" id="869-s2-alp"/>
-                        <segue destination="S7u-o9-IvI" kind="custom" id="mxy-yM-QgV"/>
-                        <segue destination="rKQ-mL-05h" kind="custom" identifier="showBlue" id="Xwn-MC-RxJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q0i-ge-VDr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -157,6 +150,29 @@
             </objects>
             <point key="canvasLocation" x="984" y="954"/>
         </scene>
+        <!--ContainerVC-->
+        <scene sceneID="AdI-Sx-3TW">
+            <objects>
+                <viewController id="x8c-2Y-jv9" customClass="ContainerVC" customModule="navtest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ive-Ce-74e"/>
+                        <viewControllerLayoutGuide type="bottom" id="Thm-PU-7gF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="j7K-Ij-oqw">
+                        <rect key="frame" x="0.0" y="0.0" width="560" height="110"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="S7u-o9-IvI" kind="custom" id="xr7-38-wKe"/>
+                        <segue destination="rKQ-mL-05h" kind="custom" id="g4b-Yg-Pp8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JwC-v8-f4h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="984" y="1225"/>
+        </scene>
         <!--Name EditorVC-->
         <scene sceneID="ZVb-0z-gFS">
             <objects>
@@ -166,7 +182,7 @@
                         <viewControllerLayoutGuide type="bottom" id="NRt-av-fSJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Pmm-7r-uUW">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Edit name" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2li-jZ-HXq">
@@ -189,13 +205,15 @@
                             <constraint firstItem="2li-jZ-HXq" firstAttribute="top" secondItem="C8V-Jl-Y7x" secondAttribute="bottom" id="WlX-Nk-bRh"/>
                         </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="100"/>
                     <connections>
                         <outlet property="nameField" destination="2li-jZ-HXq" id="wxV-0h-SqT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MgX-2f-3On" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1634" y="1060"/>
+            <point key="canvasLocation" x="1690" y="891"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EO9-pt-jKc">
@@ -274,38 +292,67 @@
             </objects>
             <point key="canvasLocation" x="205" y="980.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit Red FilterVC-->
         <scene sceneID="s8q-mX-KmK">
             <objects>
-                <viewController storyboardIdentifier="EVCRed" modalPresentationStyle="currentContext" id="S7u-o9-IvI" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EVCRed" modalPresentationStyle="currentContext" id="S7u-o9-IvI" customClass="EditRedFilterVC" customModule="navtest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aK7-aH-GRS"/>
+                        <viewControllerLayoutGuide type="bottom" id="w1N-V7-4XG"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Dpd-vm-4Xz">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="150"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UUG-3I-cMd">
-                                <rect key="frame" x="229" y="16" width="51" height="31"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="L31-3t-RiI">
+                                <rect key="frame" x="159" y="12" width="423" height="31"/>
                                 <animations/>
-                            </switch>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0DY-Cy-YMa">
-                                <rect key="frame" x="43" y="93" width="299" height="30"/>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffq-NZ-ipm">
+                                <rect key="frame" x="20" y="16" width="117" height="21"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="startEditingName:" destination="bLh-TP-XMO" eventType="editingDidBegin" id="eNE-5e-Mog"/>
-                                </connections>
-                            </textField>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="117" id="Gec-da-80Q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ihk-nO-TYl">
+                                <rect key="frame" x="159" y="155" width="423" height="31"/>
+                                <animations/>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkw-RW-gXw">
+                                <rect key="frame" x="20" y="159" width="117" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ihk-nO-TYl" firstAttribute="leading" secondItem="tkw-RW-gXw" secondAttribute="trailing" constant="24" id="Gbg-gd-clj"/>
+                            <constraint firstItem="L31-3t-RiI" firstAttribute="trailing" secondItem="Dpd-vm-4Xz" secondAttribute="trailingMargin" id="O8F-XZ-iOh"/>
+                            <constraint firstItem="tkw-RW-gXw" firstAttribute="width" secondItem="ffq-NZ-ipm" secondAttribute="width" id="SPL-cT-28c"/>
+                            <constraint firstItem="tkw-RW-gXw" firstAttribute="leading" secondItem="Dpd-vm-4Xz" secondAttribute="leadingMargin" id="WrM-jB-nir"/>
+                            <constraint firstItem="ffq-NZ-ipm" firstAttribute="top" secondItem="aK7-aH-GRS" secondAttribute="bottom" constant="16" id="Y22-aq-OeB"/>
+                            <constraint firstItem="w1N-V7-4XG" firstAttribute="top" secondItem="tkw-RW-gXw" secondAttribute="bottom" constant="20" id="a6D-4N-9Jv"/>
+                            <constraint firstItem="L31-3t-RiI" firstAttribute="leading" secondItem="ffq-NZ-ipm" secondAttribute="trailing" constant="24" id="kqG-6f-aLB"/>
+                            <constraint firstItem="ihk-nO-TYl" firstAttribute="trailing" secondItem="Dpd-vm-4Xz" secondAttribute="trailingMargin" id="pjd-q2-lfP"/>
+                            <constraint firstItem="w1N-V7-4XG" firstAttribute="top" secondItem="ihk-nO-TYl" secondAttribute="bottom" constant="15" id="sTu-Qc-TPb"/>
+                            <constraint firstItem="L31-3t-RiI" firstAttribute="top" secondItem="aK7-aH-GRS" secondAttribute="bottom" constant="12" id="wC6-fz-CSA"/>
+                            <constraint firstItem="ffq-NZ-ipm" firstAttribute="leading" secondItem="Dpd-vm-4Xz" secondAttribute="leadingMargin" id="zME-ZQ-v21"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="400" height="150"/>
+                    <size key="freeformSize" width="600" height="200"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="psB-S0-rWr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="747" y="1334"/>
+            <point key="canvasLocation" x="643" y="1470"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="eTn-4o-keS">
@@ -316,7 +363,7 @@
                         <viewControllerLayoutGuide type="bottom" id="lsh-XD-AaH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="GAF-8Q-ukO">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="150"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1xo-c4-1hp">
@@ -329,11 +376,11 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="400" height="150"/>
+                    <size key="freeformSize" width="600" height="200"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jVu-PK-8Nc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1184" y="1334"/>
+            <point key="canvasLocation" x="1314" y="1470"/>
         </scene>
     </scenes>
     <resources>
