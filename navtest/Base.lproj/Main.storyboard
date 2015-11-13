@@ -103,11 +103,11 @@
                         <viewControllerLayoutGuide type="bottom" id="8Cv-QK-R20"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QG4-eF-kNq">
-                        <rect key="frame" x="0.0" y="0.0" width="560" height="200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fQu-Gh-T1y">
-                                <rect key="frame" x="56" y="52" width="448" height="30"/>
+                                <rect key="frame" x="60" y="28" width="480" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -115,26 +115,17 @@
                                     <action selector="startEditingName:" destination="bLh-TP-XMO" eventType="editingDidBegin" id="hIt-8Y-4Uh"/>
                                 </connections>
                             </textField>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oIu-Gi-diq">
-                                <rect key="frame" x="0.0" y="90" width="560" height="110"/>
-                                <animations/>
-                                <connections>
-                                    <segue destination="x8c-2Y-jv9" kind="embed" id="Kdo-d4-K2m"/>
-                                </connections>
-                            </containerView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="8Cv-QK-R20" firstAttribute="top" secondItem="oIu-Gi-diq" secondAttribute="bottom" id="HWA-8X-TVP"/>
                             <constraint firstItem="fQu-Gh-T1y" firstAttribute="centerX" secondItem="QG4-eF-kNq" secondAttribute="centerX" id="I89-tB-Kpj"/>
                             <constraint firstItem="fQu-Gh-T1y" firstAttribute="width" secondItem="QG4-eF-kNq" secondAttribute="width" multiplier="0.8" id="Ivt-BA-7wM"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="oIu-Gi-diq" secondAttribute="trailing" constant="-20" id="VGW-bN-pR9"/>
-                            <constraint firstItem="oIu-Gi-diq" firstAttribute="leading" secondItem="QG4-eF-kNq" secondAttribute="leadingMargin" constant="-20" id="e8o-bd-olg"/>
                             <constraint firstItem="fQu-Gh-T1y" firstAttribute="top" secondItem="Kck-IX-SYP" secondAttribute="bottom" constant="8" id="hdB-cw-pmy"/>
-                            <constraint firstItem="oIu-Gi-diq" firstAttribute="top" secondItem="fQu-Gh-T1y" secondAttribute="bottom" constant="8" id="wbB-9R-YQQ"/>
                         </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="200"/>
                     <connections>
                         <outlet property="editName" destination="fQu-Gh-T1y" id="MTN-AH-Jpx"/>
                         <segue destination="PZM-ZB-3sf" kind="presentation" identifier="showNameEditor" id="869-s2-alp"/>
@@ -149,29 +140,6 @@
                 </view>
             </objects>
             <point key="canvasLocation" x="984" y="954"/>
-        </scene>
-        <!--ContainerVC-->
-        <scene sceneID="AdI-Sx-3TW">
-            <objects>
-                <viewController id="x8c-2Y-jv9" customClass="ContainerVC" customModule="navtest" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ive-Ce-74e"/>
-                        <viewControllerLayoutGuide type="bottom" id="Thm-PU-7gF"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="j7K-Ij-oqw">
-                        <rect key="frame" x="0.0" y="0.0" width="560" height="110"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <segue destination="S7u-o9-IvI" kind="custom" id="xr7-38-wKe"/>
-                        <segue destination="rKQ-mL-05h" kind="custom" id="g4b-Yg-Pp8"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JwC-v8-f4h" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="984" y="1225"/>
         </scene>
         <!--Name EditorVC-->
         <scene sceneID="ZVb-0z-gFS">
@@ -266,9 +234,6 @@
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
-                                <connections>
-                                    <segue destination="bLh-TP-XMO" kind="show" identifier="showFilterEditor" trigger="accessoryAction" id="5TA-TC-91v"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -286,6 +251,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="4kM-Bq-qcg" id="8nq-D4-blc"/>
+                        <segue destination="S7u-o9-IvI" kind="show" identifier="showRed" id="ZmY-tp-1yO"/>
+                        <segue destination="rKQ-mL-05h" kind="show" identifier="showBlue" id="LIY-qT-4aU"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Scy-Kc-gNl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -301,7 +268,7 @@
                         <viewControllerLayoutGuide type="bottom" id="w1N-V7-4XG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Dpd-vm-4Xz">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                        <rect key="frame" x="0.0" y="44" width="600" height="156"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="L31-3t-RiI">
@@ -319,11 +286,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ihk-nO-TYl">
-                                <rect key="frame" x="159" y="155" width="423" height="31"/>
+                                <rect key="frame" x="159" y="111" width="423" height="31"/>
                                 <animations/>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkw-RW-gXw">
-                                <rect key="frame" x="20" y="159" width="117" height="21"/>
+                                <rect key="frame" x="20" y="115" width="117" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -352,7 +319,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="psB-S0-rWr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="643" y="1470"/>
+            <point key="canvasLocation" x="20" y="1400"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="eTn-4o-keS">
@@ -363,7 +330,7 @@
                         <viewControllerLayoutGuide type="bottom" id="lsh-XD-AaH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="GAF-8Q-ukO">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                        <rect key="frame" x="0.0" y="44" width="600" height="156"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1xo-c4-1hp">
@@ -380,7 +347,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jVu-PK-8Nc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1314" y="1470"/>
+            <point key="canvasLocation" x="708" y="1412"/>
         </scene>
     </scenes>
     <resources>

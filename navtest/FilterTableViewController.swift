@@ -33,7 +33,7 @@ class FilterTableViewController: UITableViewController {
         Filter.addFilter("type")
         self.tableView.reloadData()
         Filter.rowToEdit = Filter.filters.count - 1
-        performSegueWithIdentifier("showFilterEditor", sender: self)
+        performSegueWithIdentifier("showRed", sender: self)
     }
 
     // MARK: - Table view data source
@@ -93,6 +93,8 @@ class FilterTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
         NSLog("Edit row %d", indexPath.row)
         Filter.rowToEdit = indexPath.row
+        performSegueWithIdentifier("showBlue", sender: self)
+
     }
     
     // MARK: - Table view delegate
