@@ -18,6 +18,8 @@ class FilterTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        
+        Filter.setInImage(Filter.origImage)
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,7 +35,7 @@ class FilterTableViewController: UITableViewController {
         Filter.addFilter("type")
         self.tableView.reloadData()
         Filter.rowToEdit = Filter.filters.count - 1
-        performSegueWithIdentifier("showRed", sender: self)
+        performSegueWithIdentifier("FHueAdjust", sender: self)
     }
 
     // MARK: - Table view data source
@@ -93,17 +95,17 @@ class FilterTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
         NSLog("Edit row %d", indexPath.row)
         Filter.rowToEdit = indexPath.row
-        performSegueWithIdentifier("showBlue", sender: self)
+        performSegueWithIdentifier("FHueAdjust", sender: self)
 
     }
     
     // MARK: - Table view delegate
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        Filter.setInImage(Filter.origImage)
         Filter.setCurrentFilter(indexPath.row)
-        let out = Filter.processCurrentFilter()
-        Filter.resultImage.image = out
+        Filter.updateResultImage()
+        //let out = Filter.processCurrentFilter()
+        //Filter.resultImage.image = out
     }
     
     // MARK: - Navigation

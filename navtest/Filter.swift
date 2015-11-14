@@ -8,6 +8,8 @@
 
 import UIKit
 
+let singleType = FHueAdjust.self
+
 class Filter: NSObject {
     
     // MARK: - Class interface
@@ -25,13 +27,13 @@ class Filter: NSObject {
     private static func setup() -> [Filter] {
         NSLog("Filter setup")
         context = CIContext(options:nil)
-        return [Filter("HH-01"), Filter("SV-03"), Filter("VH-05")]
+        return [FHueAdjust("HH-01"), FHueAdjust("SV-03"), FHueAdjust("VH-05")]
     }
     
     static func addFilter(type: String) {
     	var newFilter: Filter!
         switch type {
-    		default: newFilter = Filter("#unnamed")
+    		default: newFilter = singleType.init("#unnamed")
         }
         filters.append(newFilter)
     }
@@ -52,26 +54,23 @@ class Filter: NSObject {
         return newImage
     }
 
+    static func updateResultImage() {
+        let out = Filter.processCurrentFilter()
+        Filter.resultImage.image = out
+    }
+    
     // MARK: - Instance interface
 
     var name: String
-    var value: Float
-    var filter: CIFilter!
 
-    init(_ theName: String) {
+    required init(_ theName: String) {
         name = theName
-        value = 0.0
-        filter = CIFilter(name: "CIHueAdjust")
         super.init()
     }
     
     func process(inImage: CIImage) -> CIImage {
-        filter.setValue(inImage, forKey: kCIInputImageKey)
-        filter.setValue(value, forKey: "inputAngle")
-        
-        let outputImage = filter.outputImage
-        return outputImage!
+        NSLog("Missing override of process in filter name %@", name)
+        return inImage
     }
-    
     
 }
