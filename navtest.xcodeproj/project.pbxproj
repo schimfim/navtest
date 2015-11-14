@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7721BAF91BE6CDB100C7A7B7 /* NameEditorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7721BAF81BE6CDB100C7A7B7 /* NameEditorVC.swift */; };
 		7770ABB31BDAD2F600630053 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7770ABB21BDAD2F600630053 /* AppDelegate.swift */; };
 		7770ABB51BDAD2F600630053 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7770ABB41BDAD2F600630053 /* ViewController.swift */; };
 		7770ABB81BDAD2F600630053 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7770ABB61BDAD2F600630053 /* Main.storyboard */; };
@@ -16,13 +15,11 @@
 		777674901BE2D297005F5CB4 /* FilterEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7776748F1BE2D297005F5CB4 /* FilterEditorViewController.swift */; };
 		778113901BF7729900A9DA4C /* FHueAdjust.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781138F1BF7729900A9DA4C /* FHueAdjust.swift */; };
 		778113921BF772B100A9DA4C /* FHueAdjustVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778113911BF772B100A9DA4C /* FHueAdjustVC.swift */; };
-		77BD02881BF5493A0036FAD5 /* EditRedFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BD02871BF5493A0036FAD5 /* EditRedFilterVC.swift */; };
 		77C9DCBE1BE4AD0800340B92 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C9DCBD1BE4AD0700340B92 /* Filter.swift */; };
 		77F21F371BDC5151002BF476 /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F21F361BDC5151002BF476 /* FilterTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7721BAF81BE6CDB100C7A7B7 /* NameEditorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameEditorVC.swift; sourceTree = "<group>"; };
 		7770ABAF1BDAD2F600630053 /* navtest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = navtest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7770ABB21BDAD2F600630053 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7770ABB41BDAD2F600630053 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,7 +30,6 @@
 		7776748F1BE2D297005F5CB4 /* FilterEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterEditorViewController.swift; sourceTree = "<group>"; };
 		7781138F1BF7729900A9DA4C /* FHueAdjust.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FHueAdjust.swift; sourceTree = "<group>"; };
 		778113911BF772B100A9DA4C /* FHueAdjustVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FHueAdjustVC.swift; sourceTree = "<group>"; };
-		77BD02871BF5493A0036FAD5 /* EditRedFilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditRedFilterVC.swift; sourceTree = "<group>"; };
 		77C9DCBD1BE4AD0700340B92 /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		77F21F361BDC5151002BF476 /* FilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,7 +69,6 @@
 				7770ABB41BDAD2F600630053 /* ViewController.swift */,
 				77F21F361BDC5151002BF476 /* FilterTableViewController.swift */,
 				7776748F1BE2D297005F5CB4 /* FilterEditorViewController.swift */,
-				7721BAF81BE6CDB100C7A7B7 /* NameEditorVC.swift */,
 				77C9DCBD1BE4AD0700340B92 /* Filter.swift */,
 				7770ABB21BDAD2F600630053 /* AppDelegate.swift */,
 				7770ABB91BDAD2F600630053 /* Assets.xcassets */,
@@ -86,7 +81,6 @@
 		777E780D1BF3EE7F009864B7 /* Filters */ = {
 			isa = PBXGroup;
 			children = (
-				77BD02871BF5493A0036FAD5 /* EditRedFilterVC.swift */,
 				7781138F1BF7729900A9DA4C /* FHueAdjust.swift */,
 				778113911BF772B100A9DA4C /* FHueAdjustVC.swift */,
 			);
@@ -165,8 +159,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				778113921BF772B100A9DA4C /* FHueAdjustVC.swift in Sources */,
-				77BD02881BF5493A0036FAD5 /* EditRedFilterVC.swift in Sources */,
-				7721BAF91BE6CDB100C7A7B7 /* NameEditorVC.swift in Sources */,
 				77F21F371BDC5151002BF476 /* FilterTableViewController.swift in Sources */,
 				778113901BF7729900A9DA4C /* FHueAdjust.swift in Sources */,
 				77C9DCBE1BE4AD0800340B92 /* Filter.swift in Sources */,

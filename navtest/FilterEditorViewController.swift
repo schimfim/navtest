@@ -11,15 +11,17 @@ import UIKit
 class FilterEditorViewController: UIViewController {
 
     var editFilter: Filter!
+    @IBOutlet var filterName: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Fetch filter to edit from model
         editFilter = Filter.filters[Filter.rowToEdit]
+        filterName.text = editFilter.name
     }
 
-    @IBAction func startEditingName(sender: UITextField) {
+    func startEditingName(sender: UITextField) {
         NSLog("Start editing name")
         performSegueWithIdentifier("showNameEditor", sender: self)
     }

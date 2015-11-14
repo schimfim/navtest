@@ -19,11 +19,11 @@ class FHueAdjustVC: FilterEditorViewController {
         super.viewDidLoad()
         filter = self.editFilter as? FHueAdjust
 
-        value.value = filter!.value / 360
+        value.value = filter!.value / (2 * 3.14)
     }
     
     @IBAction func updateValue(sender: UISlider) {
-        filter!.value = sender.value * 360
+        filter!.value = sender.value * 2 * 3.14
         Filter.updateResultImage() // is this clean??
     }
 

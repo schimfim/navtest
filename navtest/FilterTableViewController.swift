@@ -95,6 +95,7 @@ class FilterTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
         NSLog("Edit row %d", indexPath.row)
         Filter.rowToEdit = indexPath.row
+        Filter.setCurrentFilter(indexPath.row)
         performSegueWithIdentifier("FHueAdjust", sender: self)
 
     }

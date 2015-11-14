@@ -3,7 +3,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -94,95 +93,6 @@
             </objects>
             <point key="canvasLocation" x="245" y="317"/>
         </scene>
-        <!--Filter Editor View Controller-->
-        <scene sceneID="VY7-ed-OEd">
-            <objects>
-                <viewController definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" id="bLh-TP-XMO" customClass="FilterEditorViewController" customModule="navtest" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Kck-IX-SYP"/>
-                        <viewControllerLayoutGuide type="bottom" id="8Cv-QK-R20"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QG4-eF-kNq">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fQu-Gh-T1y">
-                                <rect key="frame" x="60" y="28" width="480" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="startEditingName:" destination="bLh-TP-XMO" eventType="editingDidBegin" id="hIt-8Y-4Uh"/>
-                                </connections>
-                            </textField>
-                        </subviews>
-                        <animations/>
-                        <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="fQu-Gh-T1y" firstAttribute="centerX" secondItem="QG4-eF-kNq" secondAttribute="centerX" id="I89-tB-Kpj"/>
-                            <constraint firstItem="fQu-Gh-T1y" firstAttribute="width" secondItem="QG4-eF-kNq" secondAttribute="width" multiplier="0.8" id="Ivt-BA-7wM"/>
-                            <constraint firstItem="fQu-Gh-T1y" firstAttribute="top" secondItem="Kck-IX-SYP" secondAttribute="bottom" constant="8" id="hdB-cw-pmy"/>
-                        </constraints>
-                    </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="200"/>
-                    <connections>
-                        <outlet property="editName" destination="fQu-Gh-T1y" id="MTN-AH-Jpx"/>
-                        <segue destination="PZM-ZB-3sf" kind="presentation" identifier="showNameEditor" id="869-s2-alp"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Q0i-ge-VDr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="hP0-q8-Rz7">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <animations/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
-            </objects>
-            <point key="canvasLocation" x="984" y="954"/>
-        </scene>
-        <!--Name EditorVC-->
-        <scene sceneID="ZVb-0z-gFS">
-            <objects>
-                <viewController modalPresentationStyle="formSheet" id="PZM-ZB-3sf" customClass="NameEditorVC" customModule="navtest" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="C8V-Jl-Y7x"/>
-                        <viewControllerLayoutGuide type="bottom" id="NRt-av-fSJ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Pmm-7r-uUW">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Edit name" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2li-jZ-HXq">
-                                <rect key="frame" x="57" y="20" width="486" height="30"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="486" id="NOX-zC-Y5W"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                <connections>
-                                    <action selector="endEdit:" destination="PZM-ZB-3sf" eventType="editingDidEndOnExit" id="3Nr-Va-eAI"/>
-                                </connections>
-                            </textField>
-                        </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="2li-jZ-HXq" firstAttribute="centerX" secondItem="Pmm-7r-uUW" secondAttribute="centerX" id="Mil-VD-Las"/>
-                            <constraint firstItem="2li-jZ-HXq" firstAttribute="top" secondItem="C8V-Jl-Y7x" secondAttribute="bottom" id="WlX-Nk-bRh"/>
-                        </constraints>
-                    </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="100"/>
-                    <connections>
-                        <outlet property="nameField" destination="2li-jZ-HXq" id="wxV-0h-SqT"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MgX-2f-3On" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1690" y="891"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="EO9-pt-jKc">
             <objects>
@@ -252,12 +162,11 @@
                     <connections>
                         <outlet property="addButton" destination="4kM-Bq-qcg" id="8nq-D4-blc"/>
                         <segue destination="S7u-o9-IvI" kind="show" identifier="FHueAdjust" id="ZmY-tp-1yO"/>
-                        <segue destination="rKQ-mL-05h" kind="show" identifier="showBlue" id="LIY-qT-4aU"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Scy-Kc-gNl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="205" y="980.5"/>
+            <point key="canvasLocation" x="1723" y="317"/>
         </scene>
         <!--Hue AdjustVC-->
         <scene sceneID="s8q-mX-KmK">
@@ -272,10 +181,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qoL-07-y4j">
-                                <rect key="frame" x="20" y="16" width="560" height="51"/>
+                                <rect key="frame" x="28" y="8" width="544" height="51"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aMW-nz-hDX">
-                                        <rect key="frame" x="0.0" y="0.0" width="560" height="21"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="544" height="21"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBs-jT-KlL">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="21"/>
@@ -288,7 +197,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;fiterName&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XP8-Qd-5uG">
-                                                <rect key="frame" x="80" y="0.0" width="480" height="21"/>
+                                                <rect key="frame" x="80" y="0.0" width="464" height="21"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -298,7 +207,7 @@
                                         <animations/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Uyn-0R-L6g">
-                                        <rect key="frame" x="0.0" y="21" width="560" height="30"/>
+                                        <rect key="frame" x="0.0" y="21" width="544" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffq-NZ-ipm">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="30"/>
@@ -311,7 +220,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="L31-3t-RiI">
-                                                <rect key="frame" x="86" y="0.0" width="476" height="31"/>
+                                                <rect key="frame" x="86" y="0.0" width="460" height="31"/>
                                                 <animations/>
                                                 <connections>
                                                     <action selector="updateValue:" destination="S7u-o9-IvI" eventType="valueChanged" id="8Kd-bk-KKu"/>
@@ -325,51 +234,23 @@
                             </stackView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="qoL-07-y4j" secondAttribute="trailing" id="dsM-Di-a2D"/>
-                            <constraint firstItem="qoL-07-y4j" firstAttribute="top" secondItem="aK7-aH-GRS" secondAttribute="bottom" constant="16" id="kGN-eG-Uhl"/>
-                            <constraint firstItem="qoL-07-y4j" firstAttribute="leading" secondItem="Dpd-vm-4Xz" secondAttribute="leadingMargin" id="wrH-3g-FoS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qoL-07-y4j" secondAttribute="trailing" constant="8" id="dsM-Di-a2D"/>
+                            <constraint firstItem="qoL-07-y4j" firstAttribute="top" secondItem="aK7-aH-GRS" secondAttribute="bottom" constant="8" id="kGN-eG-Uhl"/>
+                            <constraint firstItem="qoL-07-y4j" firstAttribute="leading" secondItem="Dpd-vm-4Xz" secondAttribute="leadingMargin" constant="8" id="wrH-3g-FoS"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="200"/>
                     <connections>
+                        <outlet property="filterName" destination="XP8-Qd-5uG" id="axK-Gp-eH5"/>
                         <outlet property="value" destination="L31-3t-RiI" id="98r-ag-Yy2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="psB-S0-rWr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="1400"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="eTn-4o-keS">
-            <objects>
-                <viewController storyboardIdentifier="EVCBlue" modalPresentationStyle="currentContext" id="rKQ-mL-05h" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="S6r-8f-OsG"/>
-                        <viewControllerLayoutGuide type="bottom" id="lsh-XD-AaH"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="GAF-8Q-ukO">
-                        <rect key="frame" x="0.0" y="44" width="600" height="156"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1xo-c4-1hp">
-                                <rect key="frame" x="229" y="16" width="51" height="31"/>
-                                <animations/>
-                            </switch>
-                        </subviews>
-                        <animations/>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="200"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jVu-PK-8Nc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="708" y="1412"/>
+            <point key="canvasLocation" x="1211" y="744"/>
         </scene>
     </scenes>
     <resources>
