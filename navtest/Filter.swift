@@ -8,7 +8,8 @@
 
 import UIKit
 
-let singleType = FHueAdjust.self
+let singleType = FPalette.self
+let singleSegueID = "FPalette"
 
 class Filter: NSObject {
     
@@ -27,7 +28,7 @@ class Filter: NSObject {
     private static func setup() -> [Filter] {
         NSLog("Filter setup")
         context = CIContext(options:nil)
-        return [FHueAdjust("HH-01"), FHueAdjust("SV-03"), FHueAdjust("VH-05")]
+        return [singleType.init("HH-01"), singleType.init("SV-03"), singleType.init("VH-05")]
     }
     
     static func addFilter(type: String) {
@@ -57,6 +58,10 @@ class Filter: NSObject {
     static func updateResultImage() {
         let out = Filter.processCurrentFilter()
         Filter.resultImage.image = out
+    }
+    
+    static func segueIDforRowToEdit()->String {
+        return singleSegueID
     }
     
     // MARK: - Instance interface

@@ -35,7 +35,8 @@ class FilterTableViewController: UITableViewController {
         Filter.addFilter("type")
         self.tableView.reloadData()
         Filter.rowToEdit = Filter.filters.count - 1
-        performSegueWithIdentifier("FHueAdjust", sender: self)
+        Filter.setCurrentFilter(Filter.rowToEdit)
+        performSegueWithIdentifier(Filter.segueIDforRowToEdit(), sender: self)
     }
 
     // MARK: - Table view data source
@@ -96,7 +97,7 @@ class FilterTableViewController: UITableViewController {
         NSLog("Edit row %d", indexPath.row)
         Filter.rowToEdit = indexPath.row
         Filter.setCurrentFilter(indexPath.row)
-        performSegueWithIdentifier("FHueAdjust", sender: self)
+        performSegueWithIdentifier(Filter.segueIDforRowToEdit(), sender: self)
 
     }
     

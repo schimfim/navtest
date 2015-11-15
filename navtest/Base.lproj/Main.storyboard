@@ -162,6 +162,7 @@
                     <connections>
                         <outlet property="addButton" destination="4kM-Bq-qcg" id="8nq-D4-blc"/>
                         <segue destination="S7u-o9-IvI" kind="show" identifier="FHueAdjust" id="ZmY-tp-1yO"/>
+                        <segue destination="f5A-lz-dtA" kind="show" identifier="FPalette" id="1sO-Ob-mkw"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Scy-Kc-gNl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -251,6 +252,90 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="psB-S0-rWr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1211" y="744"/>
+        </scene>
+        <!--PaletteVC-->
+        <scene sceneID="wSe-aG-wg4">
+            <objects>
+                <viewController modalPresentationStyle="currentContext" id="f5A-lz-dtA" customClass="FPaletteVC" customModule="navtest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VSp-oW-fyW"/>
+                        <viewControllerLayoutGuide type="bottom" id="bFj-aR-4IK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rji-iV-nTf">
+                        <rect key="frame" x="0.0" y="44" width="600" height="156"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Btg-sb-gDE">
+                                <rect key="frame" x="28" y="8" width="544" height="51"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fX5-Or-N5q">
+                                        <rect key="frame" x="0.0" y="0.0" width="544" height="21"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKa-sw-GNn">
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="21"/>
+                                                <animations/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="HW5-YC-QDY"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;fiterName&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lg8-0E-i3d">
+                                                <rect key="frame" x="80" y="0.0" width="464" height="21"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <animations/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pHP-Nc-1hQ">
+                                        <rect key="frame" x="0.0" y="21" width="544" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strength" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oln-J6-abv">
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="30"/>
+                                                <animations/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="u2X-P3-Z8T"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="VEa-kD-Uiy">
+                                                <rect key="frame" x="86" y="0.0" width="460" height="31"/>
+                                                <animations/>
+                                                <connections>
+                                                    <action selector="updateValue:" destination="f5A-lz-dtA" eventType="valueChanged" id="8Cb-Fn-vG5"/>
+                                                </connections>
+                                            </slider>
+                                        </subviews>
+                                        <animations/>
+                                    </stackView>
+                                </subviews>
+                                <animations/>
+                            </stackView>
+                        </subviews>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Btg-sb-gDE" secondAttribute="trailing" constant="8" id="4Te-zo-YWH"/>
+                            <constraint firstItem="Btg-sb-gDE" firstAttribute="leading" secondItem="Rji-iV-nTf" secondAttribute="leadingMargin" constant="8" id="iVd-7V-YiN"/>
+                            <constraint firstItem="Btg-sb-gDE" firstAttribute="top" secondItem="VSp-oW-fyW" secondAttribute="bottom" constant="8" id="pe8-Kw-cZd"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="200"/>
+                    <connections>
+                        <outlet property="filterName" destination="Lg8-0E-i3d" id="VvF-ub-VwA"/>
+                        <outlet property="value" destination="VEa-kD-Uiy" id="AwQ-i1-Zg4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4wm-fW-Ygb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1877" y="744"/>
         </scene>
     </scenes>
     <resources>

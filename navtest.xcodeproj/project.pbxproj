@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		775418001BF8E04000C122F5 /* FColorCubeBasedFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775417FF1BF8E04000C122F5 /* FColorCubeBasedFilter.swift */; };
+		775418021BF8E87900C122F5 /* FPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775418011BF8E87900C122F5 /* FPalette.swift */; };
+		775418041BF912E800C122F5 /* FPaletteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775418031BF912E800C122F5 /* FPaletteVC.swift */; };
 		7770ABB31BDAD2F600630053 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7770ABB21BDAD2F600630053 /* AppDelegate.swift */; };
 		7770ABB51BDAD2F600630053 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7770ABB41BDAD2F600630053 /* ViewController.swift */; };
 		7770ABB81BDAD2F600630053 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7770ABB61BDAD2F600630053 /* Main.storyboard */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		775417FF1BF8E04000C122F5 /* FColorCubeBasedFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FColorCubeBasedFilter.swift; sourceTree = "<group>"; };
+		775418011BF8E87900C122F5 /* FPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPalette.swift; sourceTree = "<group>"; };
+		775418031BF912E800C122F5 /* FPaletteVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPaletteVC.swift; sourceTree = "<group>"; };
 		7770ABAF1BDAD2F600630053 /* navtest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = navtest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7770ABB21BDAD2F600630053 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7770ABB41BDAD2F600630053 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,8 +87,11 @@
 		777E780D1BF3EE7F009864B7 /* Filters */ = {
 			isa = PBXGroup;
 			children = (
+				775417FF1BF8E04000C122F5 /* FColorCubeBasedFilter.swift */,
 				7781138F1BF7729900A9DA4C /* FHueAdjust.swift */,
 				778113911BF772B100A9DA4C /* FHueAdjustVC.swift */,
+				775418011BF8E87900C122F5 /* FPalette.swift */,
+				775418031BF912E800C122F5 /* FPaletteVC.swift */,
 			);
 			name = Filters;
 			sourceTree = "<group>";
@@ -163,8 +172,11 @@
 				778113901BF7729900A9DA4C /* FHueAdjust.swift in Sources */,
 				77C9DCBE1BE4AD0800340B92 /* Filter.swift in Sources */,
 				7770ABB51BDAD2F600630053 /* ViewController.swift in Sources */,
+				775418041BF912E800C122F5 /* FPaletteVC.swift in Sources */,
 				777674901BE2D297005F5CB4 /* FilterEditorViewController.swift in Sources */,
 				7770ABB31BDAD2F600630053 /* AppDelegate.swift in Sources */,
+				775418001BF8E04000C122F5 /* FColorCubeBasedFilter.swift in Sources */,
+				775418021BF8E87900C122F5 /* FPalette.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
