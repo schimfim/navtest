@@ -8,9 +8,7 @@
 
 import UIKit
 
-let singleType = FPalette.self
 let singleSegueID = "FPalette"
-//let singleSegueID = "FHueAdjust"
 
 class Filter: NSObject {
     
@@ -29,13 +27,13 @@ class Filter: NSObject {
     private static func setup() -> [Filter] {
         NSLog("Filter setup")
         context = CIContext(options:nil)
-        return [singleType.init("HH-01"), singleType.init("SV-03"), singleType.init("VH-05")]
+        return [FPalette.init("P01", preset: 0), FPalette.init("P02", preset: 1), FPalette.init("P03", preset: 2)]
     }
     
     static func addFilter(type: String) {
     	var newFilter: Filter!
         switch type {
-    		default: newFilter = singleType.init("#unnamed")
+    		default: newFilter = FPalette.init("#unnamed")
         }
         filters.append(newFilter)
     }

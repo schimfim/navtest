@@ -24,8 +24,8 @@ struct RGB {
 
 class FColorCubeBasedFilter: Filter {
     
-    private var NCUBE = 4
-    private var cubeLength: Int?
+    var NCUBE = 4
+    var cubeLength: Int?
     var cube: [RGB]?
     
     // data structure for CIFilter:cube3d
@@ -33,7 +33,7 @@ class FColorCubeBasedFilter: Filter {
     
     let filter = CIFilter(name:"CIColorCube")!
     
-    private func reset() {
+    func reset() {
         cubeLength = NCUBE * NCUBE * NCUBE
         cube = [RGB](count:cubeLength!, repeatedValue:RGB(0,0,0))
         let div = Float(NCUBE-1)
@@ -53,7 +53,7 @@ class FColorCubeBasedFilter: Filter {
         cubeData = NSData(bytes: cube!, length: cubeLength! * sizeof(RGB))
     }
     
-    func setNCUBE(n:Int) {
+    func putNCUBE(n:Int) {
         NCUBE = n
         reset()
     }
