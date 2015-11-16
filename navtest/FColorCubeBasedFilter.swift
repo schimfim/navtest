@@ -45,6 +45,11 @@ class FColorCubeBasedFilter: Filter {
                 }
             }
         }
+        //cubeData = NSData(bytes: cube!, length: cubeLength! * sizeof(RGB))
+        update()
+    }
+    
+    func update() {
         cubeData = NSData(bytes: cube!, length: cubeLength! * sizeof(RGB))
     }
     

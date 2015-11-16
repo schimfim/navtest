@@ -304,11 +304,11 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="VEa-kD-Uiy">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEa-kD-Uiy">
                                                 <rect key="frame" x="86" y="0.0" width="460" height="31"/>
                                                 <animations/>
                                                 <connections>
-                                                    <action selector="updateValue:" destination="f5A-lz-dtA" eventType="valueChanged" id="8Cb-Fn-vG5"/>
+                                                    <action selector="updateStrength:" destination="f5A-lz-dtA" eventType="valueChanged" id="3VA-A5-slN"/>
                                                 </connections>
                                             </slider>
                                         </subviews>
@@ -330,7 +330,7 @@
                     <size key="freeformSize" width="600" height="200"/>
                     <connections>
                         <outlet property="filterName" destination="Lg8-0E-i3d" id="VvF-ub-VwA"/>
-                        <outlet property="value" destination="VEa-kD-Uiy" id="AwQ-i1-Zg4"/>
+                        <outlet property="strength" destination="VEa-kD-Uiy" id="RdW-PT-1Wo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4wm-fW-Ygb" userLabel="First Responder" sceneMemberID="firstResponder"/>

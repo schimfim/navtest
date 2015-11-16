@@ -97,7 +97,8 @@ class FilterTableViewController: UITableViewController {
         NSLog("Edit row %d", indexPath.row)
         Filter.rowToEdit = indexPath.row
         Filter.setCurrentFilter(indexPath.row)
-        performSegueWithIdentifier(Filter.segueIDforRowToEdit(), sender: self)
+        let sid = Filter.segueIDforRowToEdit()
+        performSegueWithIdentifier(sid, sender: self)
 
     }
     

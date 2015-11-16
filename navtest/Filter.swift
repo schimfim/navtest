@@ -10,6 +10,7 @@ import UIKit
 
 let singleType = FPalette.self
 let singleSegueID = "FPalette"
+//let singleSegueID = "FHueAdjust"
 
 class Filter: NSObject {
     
@@ -61,6 +62,7 @@ class Filter: NSObject {
     }
     
     static func segueIDforRowToEdit()->String {
+        NSLog("Performing segue: %@", singleSegueID)
         return singleSegueID
     }
     
