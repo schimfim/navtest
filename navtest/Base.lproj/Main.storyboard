@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -30,17 +30,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f4m-CC-fK9">
                                 <rect key="frame" x="20" y="20" width="560" height="360"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="QtZ-9n-Lq9">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" minimumZoomScale="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="QtZ-9n-Lq9">
                                         <rect key="frame" x="8" y="8" width="544" height="344"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="WDA-vB-GjH">
                                                 <rect key="frame" x="8" y="8" width="483" height="640"/>
                                                 <animations/>
                                                 <gestureRecognizers/>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="w0D-ug-yH7" appends="YES" id="IRH-uz-j0U"/>
-                                                    <outletCollection property="gestureRecognizers" destination="Dtu-dF-TeP" appends="YES" id="dVU-Wh-rvC"/>
-                                                </connections>
                                             </imageView>
                                         </subviews>
                                         <animations/>
@@ -50,6 +46,9 @@
                                             <constraint firstItem="WDA-vB-GjH" firstAttribute="leading" secondItem="QtZ-9n-Lq9" secondAttribute="leading" constant="8" id="bqh-co-Cuu"/>
                                             <constraint firstAttribute="bottom" secondItem="WDA-vB-GjH" secondAttribute="bottom" constant="8" id="oQn-5P-zED"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="2bR-kO-Ch3"/>
+                                        </connections>
                                     </scrollView>
                                 </subviews>
                                 <animations/>
@@ -76,20 +75,10 @@
                     </view>
                     <connections>
                         <outlet property="resultImage" destination="WDA-vB-GjH" id="joS-c1-qpy"/>
-                        <outlet property="scrollView" destination="QtZ-9n-Lq9" id="P9N-rf-wVD"/>
+                        <outlet property="scrollView" destination="QtZ-9n-Lq9" id="dLl-04-JNS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="w0D-ug-yH7">
-                    <connections>
-                        <action selector="handlePan:" destination="BYZ-38-t0r" id="aov-sv-vgO"/>
-                    </connections>
-                </panGestureRecognizer>
-                <pinchGestureRecognizer id="Dtu-dF-TeP">
-                    <connections>
-                        <action selector="handlePinch:" destination="BYZ-38-t0r" id="7VL-Hs-Sdf"/>
-                    </connections>
-                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="245" y="317"/>
         </scene>
