@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerControllerDelegate {
+class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     // add image here
     @IBOutlet var resultImage: UIImageView!
@@ -42,7 +42,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     
     //
     
-    func loadImage(sender: AnyObject) {
+    @IBAction func loadImage(sender: AnyObject) {
         let imagePickerController = UIImagePickerController()
         // Only allow photos to be picked, not taken.
         imagePickerController.sourceType = .PhotoLibrary
@@ -60,14 +60,14 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         // Set photoImageView to display the selected image.
-        origImage = selectedImage
-        resultImage.image = origImage
+        //origImage = selectedImage
+        resultImage.image = selectedImage
         
         // Dismiss the picker.
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func saveImage() {
-    	UIImageWriteToSavedPhotosAlbum(resultImage.image)
+    @IBAction func saveImage(sender: UIBarButtonItem) {
+        UIImageWriteToSavedPhotosAlbum(resultImage.image!, nil, nil, nil)
     }
 }

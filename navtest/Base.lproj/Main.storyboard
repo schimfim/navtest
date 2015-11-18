@@ -60,14 +60,33 @@
                                     <constraint firstAttribute="bottom" secondItem="QtZ-9n-Lq9" secondAttribute="bottom" constant="8" id="JJY-Wy-o32"/>
                                 </constraints>
                             </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TGe-bh-OnH">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <animations/>
+                                <items>
+                                    <barButtonItem title="Load" id="vec-Oq-V5V">
+                                        <connections>
+                                            <action selector="loadImage:" destination="BYZ-38-t0r" id="JCo-tq-vuz"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Save" id="qcV-ff-aTi">
+                                        <connections>
+                                            <action selector="saveImage:" destination="BYZ-38-t0r" id="vOG-vU-7Vp"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="TGe-bh-OnH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="7WX-ee-2rr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6jV-4J-bmF" secondAttribute="trailing" id="8m1-vh-qOc"/>
                             <constraint firstItem="f4m-CC-fK9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8zD-Tt-oNu"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TGe-bh-OnH" secondAttribute="bottom" id="91A-Ax-DDR"/>
                             <constraint firstItem="f4m-CC-fK9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="9oY-89-RtU"/>
                             <constraint firstItem="6jV-4J-bmF" firstAttribute="top" secondItem="f4m-CC-fK9" secondAttribute="bottom" id="Pms-Jt-I8H"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TGe-bh-OnH" secondAttribute="trailing" constant="-20" id="TfX-ex-uak"/>
                             <constraint firstItem="6jV-4J-bmF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ZXh-HI-IS7"/>
                             <constraint firstAttribute="bottom" secondItem="6jV-4J-bmF" secondAttribute="bottom" constant="20" symbolic="YES" id="eXs-og-aBt"/>
                             <constraint firstItem="f4m-CC-fK9" firstAttribute="width" secondItem="6jV-4J-bmF" secondAttribute="width" id="qd6-7d-Fpd"/>
@@ -86,6 +105,7 @@
         <scene sceneID="EO9-pt-jKc">
             <objects>
                 <navigationController id="JIh-rP-qoO" sceneMemberID="viewController">
+                    <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1gP-WE-6bb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
