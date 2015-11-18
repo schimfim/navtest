@@ -66,4 +66,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         // Dismiss the picker.
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    func saveImage() {
+    	UIImageWriteToSavedPhotosAlbum(resultImage.image)
+    }
 }
