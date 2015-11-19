@@ -18,7 +18,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         Filter.resultImageView = resultImageView
-        Filter.origImage = resultImage.image!
+        Filter.origImage = resultImageView.image!
         
 		updateScrollViewSettings()
     }
@@ -65,6 +65,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         // Set photoImageView to display the selected image.
         Filter.origImage = selectedImage
+        Filter.setInImage(selectedImage)
         resultImageView.image = selectedImage
         updateScrollViewSettings()
         

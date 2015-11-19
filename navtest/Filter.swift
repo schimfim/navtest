@@ -10,14 +10,18 @@ import UIKit
 
 let singleSegueID = "FPalette"
 
-class Filter: NSObject {
+struct PropertyKey {
+    static let nameKey = "name"
+}
+
+class Filter: NSObject, NSCoding {
     
     // MARK: - Class interface
     
     static var filters: [Filter] = Filter.setup()
     static var rowToEdit = 0
     
-    static var resultImage: UIImageView!
+    static var resultImageView: UIImageView!
     static var origImage: UIImage!
     
     static private var currentFilter: Filter?
@@ -56,7 +60,7 @@ class Filter: NSObject {
 
     static func updateResultImage() {
         let out = Filter.processCurrentFilter()
-        Filter.resultImage.image = out
+        Filter.resultImageView.image = out
     }
     
     static func segueIDforRowToEdit()->String {
@@ -76,6 +80,19 @@ class Filter: NSObject {
     func process(inImage: CIImage) -> CIImage {
         NSLog("Missing override of process in filter name %@", name)
         return inImage
+    }
+    
+    // MARK: NSCoding
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(name, forKey: PropertyKey.nameKey)
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        let name = aDecoder.decodeObjectForKey(PropertyKey.nameKey) as! String
+        
+        // Must call designated initializer.
+        self.init(name)
     }
     
 }

@@ -93,7 +93,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="resultImage" destination="WDA-vB-GjH" id="joS-c1-qpy"/>
+                        <outlet property="resultImageView" destination="WDA-vB-GjH" id="dKa-Xe-8Kc"/>
                         <outlet property="scrollView" destination="QtZ-9n-Lq9" id="dLl-04-JNS"/>
                     </connections>
                 </viewController>
