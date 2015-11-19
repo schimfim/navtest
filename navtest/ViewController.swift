@@ -11,16 +11,20 @@ import UIKit
 class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     // add image here
-    @IBOutlet var resultImage: UIImageView!
+    @IBOutlet var resultImageView: UIImageView!
     @IBOutlet var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        Filter.resultImage = resultImage
+        Filter.resultImageView = resultImageView
         Filter.origImage = resultImage.image!
         
-        scrollView.contentSize = Filter.origImage.size
+		updateScrollViewSettings()
+    }
+
+	func updateScrollViewSettings() {
+	    scrollView.contentSize = Filter.origImage.size
         let scrollViewFrame = scrollView.frame
         let scaleWidth = scrollViewFrame.size.width / scrollView.contentSize.width
         let scaleHeight = scrollViewFrame.size.height / scrollView.contentSize.height
@@ -29,7 +33,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         scrollView.maximumZoomScale = 1.0
         scrollView.zoomScale = minScale;
         NSLog("zoomScale: %f", minScale)
-    }
+	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -37,7 +41,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     }
     
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
-        return resultImage
+        return resultImageView
     }
     
     //
@@ -60,14 +64,15 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         // Set photoImageView to display the selected image.
-        //origImage = selectedImage
-        resultImage.image = selectedImage
+        Filter.origImage = selectedImage
+        resultImageView.image = selectedImage
+        updateScrollViewSettings()
         
         // Dismiss the picker.
         dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func saveImage(sender: UIBarButtonItem) {
-        UIImageWriteToSavedPhotosAlbum(resultImage.image!, nil, nil, nil)
+        UIImageWriteToSavedPhotosAlbum(resultImageView.image!, nil, nil, nil)
     }
 }
