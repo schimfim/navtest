@@ -17,6 +17,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        loadFilters()
         Filter.resultImageView = resultImageView
         Filter.origImage = resultImageView.image!
         
@@ -76,4 +77,9 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBAction func saveImage(sender: UIBarButtonItem) {
         UIImageWriteToSavedPhotosAlbum(resultImageView.image!, nil, nil, nil)
     }
+    
+    func loadFilters() -> [Filter]? {
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(Filter.ArchiveURL.path!) as? [Filter]
+    }
+
 }

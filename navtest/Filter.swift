@@ -17,6 +17,13 @@ struct PropertyKey {
 class Filter: NSObject, NSCoding {
     
     // MARK: - Class interface
+
+    // MARK: Archiving Paths
+    
+    static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("navtest")
+    
+    // MARK: Properties
     
     static var filters: [Filter] = Filter.setup()
     static var rowToEdit = 0
@@ -61,6 +68,7 @@ class Filter: NSObject, NSCoding {
     static func updateResultImage() {
         let out = Filter.processCurrentFilter()
         Filter.resultImageView.image = out
+        currentFilter?.saveFilters()
     }
     
     static func segueIDforRowToEdit()->String {
@@ -83,6 +91,13 @@ class Filter: NSObject, NSCoding {
     }
     
     // MARK: NSCoding
+    
+    func saveFilters() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(Filter.filters, toFile: Filter.ArchiveURL.path!)
+        if !isSuccessfulSave {
+            NSLog("Failed to save filters")
+        }
+    }
     
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(name, forKey: PropertyKey.nameKey)
