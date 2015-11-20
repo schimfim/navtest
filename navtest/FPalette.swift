@@ -23,11 +23,11 @@ let presets = [
     [white_c, black_c, red_c, green_c, blue_c]
 ]
 
-var cents = presets[0]
 
 class FPalette: FColorCubeBasedFilter {
     
     var strength: Float = 2.0
+    var cents = presets[0]
     
     required init(_ theName: String) {
         super.init(theName)

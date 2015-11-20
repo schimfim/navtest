@@ -19,6 +19,7 @@ class FPaletteVC: FilterEditorViewController {
         super.viewDidLoad()
         filter = self.editFilter as? FPalette
         strength.value = ((filter?.strength)! - 0.5) / 4.5
+        filter!.reset()
         filter?.update()
         Filter.updateResultImage()
     }
