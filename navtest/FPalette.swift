@@ -20,7 +20,8 @@ let cyan_c    = RGB(0,1,1)
 let presets = [
     [black_c, white_c, red_c, green_c, blue_c, magenta_c, yellow_c, cyan_c],
     [black_c, white_c, yellow_c, cyan_c],
-    [white_c, black_c, red_c, green_c, blue_c]
+    [white_c, black_c, red_c, green_c, blue_c],
+    [white_c, black_c, red_c, green_c, blue_c, RGB(h: 2/3, s: 0.5, v: 1.0)]
 ]
 
 
@@ -35,8 +36,9 @@ class FPalette: FColorCubeBasedFilter {
     }
     
     convenience init(_ theName: String, preset: Int) {
-        cents = presets[preset]
         self.init(theName)
+        cents = presets[preset]
+        update()
     }
     
     override func update() {

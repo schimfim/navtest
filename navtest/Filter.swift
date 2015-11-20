@@ -38,7 +38,7 @@ class Filter: NSObject, NSCoding {
     private static func setup() -> [Filter] {
         NSLog("Filter setup")
         context = CIContext(options:nil)
-        return [FPalette.init("P01", preset: 0), FPalette.init("P02", preset: 1), FPalette.init("P03", preset: 2)]
+        return [FPalette.init("P01", preset: 0), FPalette.init("P02", preset: 1), FPalette.init("P03", preset: 2), FPalette.init("P04", preset: 3)]
     }
     
     static func addFilter(type: String) {

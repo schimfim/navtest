@@ -20,6 +20,20 @@ struct RGB {
         g = ng
         b = nb
     }
+    
+    init(h:Float, s:Float, v:Float) {
+        // convert to rgb
+        let color = UIColor(hue: CGFloat(h), saturation: CGFloat(s), brightness: CGFloat(v), alpha: CGFloat(1.0))
+        var nr : CGFloat = 0.0
+        var ng : CGFloat = 0.0
+        var nb : CGFloat = 0.0
+        var na : CGFloat = 0.0
+        color.getRed(&nr, green:&ng, blue:&nb, alpha:&na)
+        
+        r = Float(nr)
+        g = Float(ng)
+        b = Float(nb)
+    }
 }
 
 class FColorCubeBasedFilter: Filter {

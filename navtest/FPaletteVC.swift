@@ -18,14 +18,14 @@ class FPaletteVC: FilterEditorViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         filter = self.editFilter as? FPalette
-        strength.value = ((filter?.strength)! - 0.5) / 4.5
+        strength.value = ((filter?.strength)! - 1.0) / 2.0
         filter!.reset()
         filter?.update()
         Filter.updateResultImage()
     }
     
     @IBAction func updateStrength(sender: UISlider) {
-        filter?.strength = strength.value * 4.5 + 0.5
+        filter?.strength = strength.value * 2.0 + 1.0
         filter!.reset()
         filter?.update()
         Filter.updateResultImage()
