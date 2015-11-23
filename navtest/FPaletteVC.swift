@@ -21,13 +21,13 @@ class FPaletteVC: FilterEditorViewController {
         strength.value = ((filter?.strength)! - 1.0) / 2.0
         filter!.reset()
         filter?.update()
-        Filter.updateResultImage()
+        Filter.updateResultImageAsync()
     }
     
     @IBAction func updateStrength(sender: UISlider) {
         filter?.strength = strength.value * 2.0 + 1.0
         filter!.reset()
         filter?.update()
-        Filter.updateResultImage()
+        Filter.updateResultImageAsync()
     }
 }

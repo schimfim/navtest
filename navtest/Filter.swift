@@ -30,6 +30,7 @@ class Filter: NSObject, NSCoding {
     
     static var resultImageView: UIImageView!
     static var origImage: UIImage!
+    static var activity: UIActivityIndicatorView!
     
     static private var currentFilter: Filter?
     static private var context: CIContext?
@@ -63,6 +64,16 @@ class Filter: NSObject, NSCoding {
         let newImage = UIImage(CGImage: cgimg, scale: 1.0, orientation:.Up)
         
         return newImage
+    }
+    
+    static func updateResultImageAsync() {
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_UTILITY, 0)) {
+            activity.startAnimating()
+            Filter.updateResultImage()
+            dispatch_async(dispatch_get_main_queue()) {
+                activity.stopAnimating()
+            }
+        }
     }
 
     static func updateResultImage() {

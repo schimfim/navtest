@@ -13,6 +13,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     // add image here
     @IBOutlet var resultImageView: UIImageView!
     @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var activity: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         loadFilters()
         Filter.resultImageView = resultImageView
         Filter.origImage = resultImageView.image!
+        Filter.activity = self.activity
         
 		updateScrollViewSettings()
     }

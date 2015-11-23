@@ -106,7 +106,7 @@ class FilterTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         Filter.setCurrentFilter(indexPath.row)
-        Filter.updateResultImage()
+        Filter.updateResultImageAsync()
         //let out = Filter.processCurrentFilter()
         //Filter.resultImage.image = out
     }
