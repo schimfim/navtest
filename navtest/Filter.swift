@@ -69,9 +69,11 @@ class Filter: NSObject, NSCoding {
     static func updateResultImageAsync() {
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_UTILITY, 0)) {
             activity.startAnimating()
-            Filter.updateResultImage()
+            let out = Filter.processCurrentFilter()
             dispatch_async(dispatch_get_main_queue()) {
                 activity.stopAnimating()
+                Filter.resultImageView.image = out
+                currentFilter?.saveFilters()
             }
         }
     }
