@@ -67,15 +67,20 @@ class Filter: NSObject, NSCoding {
     }
     
     static func updateResultImageAsync() {
-        dispatch_async(dispatch_get_global_queue(QOS_CLASS_UTILITY, 0)) {
-            activity.startAnimating()
+    	NSLog("1 Entering update method")
+    	activity.startAnimating()
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
+            NSLog("2 Starting async task")
             let out = Filter.processCurrentFilter()
             dispatch_async(dispatch_get_main_queue()) {
+            	NSLog("3 Dispatch to main queue")
                 activity.stopAnimating()
                 Filter.resultImageView.image = out
                 currentFilter?.saveFilters()
             }
+            NSLog("4 Back in outer dispatch")
         }
+        NSLog("5 Back in outer method")
     }
 
     static func updateResultImage() {
