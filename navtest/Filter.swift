@@ -69,11 +69,13 @@ class Filter: NSObject, NSCoding {
     static func updateResultImageAsync() {
     	NSLog("1 Entering update method")
     	activity.startAnimating()
-        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_UTILITY, 0)) {
             NSLog("2 Starting async task")
-            let out = Filter.processCurrentFilter()
+            let outputImage = currentFilter!.process(inImage!)
             dispatch_async(dispatch_get_main_queue()) {
             	NSLog("3 Dispatch to main queue")
+                let cgimg = context!.createCGImage(outputImage, fromRect: outputImage.extent)
+                let out = UIImage(CGImage: cgimg, scale: 1.0, orientation:.Up)
                 activity.stopAnimating()
                 Filter.resultImageView.image = out
                 currentFilter?.saveFilters()
