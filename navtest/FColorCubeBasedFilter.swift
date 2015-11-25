@@ -45,7 +45,7 @@ class FColorCubeBasedFilter: Filter {
     // data structure for CIFilter:cube3d
     var cubeData: NSData?
     
-    let filter = CIFilter(name:"CIColorCube")!
+    var filter = CIFilter(name:"CIColorCube")!
     
     func reset() {
         cubeLength = NCUBE * NCUBE * NCUBE
@@ -78,6 +78,7 @@ class FColorCubeBasedFilter: Filter {
     }
     
     override func process(inImage: CIImage) -> CIImage {
+        filter = CIFilter(name:"CIColorCube")!
         filter.setValue(inImage, forKey: kCIInputImageKey)
         filter.setValue(NCUBE, forKey: "inputCubeDimension")
         filter.setValue(cubeData, forKey: "inputCubeData")
