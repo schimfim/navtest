@@ -72,15 +72,17 @@ class Filter: NSObject, NSCoding {
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_UTILITY, 0)) {
             NSLog("2 Starting async task")
             let outputImage = currentFilter!.process(inImage!)
-            let cgimg = context!.createCGImage(outputImage, fromRect: outputImage.extent)
-            let out = UIImage(CGImage: cgimg, scale: 1.0, orientation:.Up)
-            //sleep(5)
+            //let cgimg = context!.createCGImage(outputImage, fromRect: outputImage.extent)
+            //let out = UIImage(CGImage: cgimg, scale: 1.0, orientation:.Up)
+            let out = UIImage(CIImage: outputImage)
+            //sleep(2)
+            NSLog("2.1 Ending async task")
             dispatch_async(dispatch_get_main_queue()) {
             	NSLog("3 Dispatch to main queue")
-
                 activity.stopAnimating()
-                Filter.resultImageView.image = out
+                //Filter.resultImageView.image = out
                 //currentFilter?.saveFilters()
+                NSLog("3.1 Main queue done")
             }
             NSLog("4 Back in outer dispatch")
         }
