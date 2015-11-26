@@ -73,11 +73,11 @@ class Filter: NSObject, NSCoding {
             NSLog("2 Starting async task")
             let outputImage = currentFilter!.process(inImage!)
             let cgimg = context!.createCGImage(outputImage, fromRect: outputImage.extent)
+            let out = UIImage(CGImage: cgimg, scale: 1.0, orientation:.Up)
             //sleep(5)
             dispatch_async(dispatch_get_main_queue()) {
             	NSLog("3 Dispatch to main queue")
 
-                let out = UIImage(CGImage: cgimg, scale: 1.0, orientation:.Up)
                 activity.stopAnimating()
                 Filter.resultImageView.image = out
                 //currentFilter?.saveFilters()
