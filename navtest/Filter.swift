@@ -38,7 +38,10 @@ class Filter: NSObject, NSCoding {
     
     private static func setup() -> [Filter] {
         NSLog("Filter setup")
-        context = CIContext(options:[kCIContextUseSoftwareRenderer: true])
+        //context = CIContext(options:[kCIContextUseSoftwareRenderer: true])
+        let eaglContext = EAGLContext(API: .OpenGLES2)
+		let context = CIContext(EAGLContext: eaglContext)
+
         return [FPalette.init("P01", preset: 0), FPalette.init("P02", preset: 1), FPalette.init("P03", preset: 2), FPalette.init("P04", preset: 3)]
     }
     
@@ -72,9 +75,9 @@ class Filter: NSObject, NSCoding {
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_UTILITY, 0)) {
             NSLog("2 Starting async task")
             let outputImage = currentFilter!.process(inImage!)
-            //let cgimg = context!.createCGImage(outputImage, fromRect: outputImage.extent)
-            //let out = UIImage(CGImage: cgimg, scale: 1.0, orientation:.Up)
-            let out = UIImage(CIImage: outputImage)
+            let cgimg = context!.createCGImage(outputImage, fromRect: outputImage.extent)
+            //ciContext.drawImage(filter.outputImage, inRect: outputBounds, fromRect: inputBounds)
+            let out = UIImage(CGImage: cgimg, scale: 1.0, orientation:.Up)
             //sleep(2)
             NSLog("2.1 Ending async task")
             dispatch_async(dispatch_get_main_queue()) {
