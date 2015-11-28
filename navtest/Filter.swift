@@ -71,13 +71,14 @@ class Filter: NSObject, NSCoding {
     
     static func updateResultImageAsync() {
     	NSLog("1 Entering update method")
-        hud.startProgress()
+        hud.start()
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_UTILITY, 0)) {
             NSLog("2 Starting async task")
             let outputImage = currentFilter!.process(inImage!)
             //context!.drawImage(outputImage, inRect: outputImage.extent, fromRect: outputImage.extent)
             let cgimg = context!.createCGImage(outputImage, fromRect: outputImage.extent)
             let out = UIImage(CGImage: cgimg, scale: 1.0, orientation:.Up)
+            hud.cancel()
             //sleep(2)
             NSLog("2.1 Ending async task")
             dispatch_async(dispatch_get_main_queue()) {
