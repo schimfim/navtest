@@ -40,50 +40,6 @@
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="2bR-kO-Ch3"/>
                                         </connections>
                                     </scrollView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P0U-Pu-iFH" userLabel="HUD">
-                                        <rect key="frame" x="240" y="108" width="120" height="120"/>
-                                        <subviews>
-                                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GFX-gB-kOW">
-                                                <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
-                                                <animations/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="120" id="AMd-wc-a71"/>
-                                                    <constraint firstAttribute="height" constant="120" id="I5Q-lG-nLR"/>
-                                                </constraints>
-                                            </view>
-                                            <stackView contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TR9-bc-YqY">
-                                                <rect key="frame" x="10" y="10" width="100" height="100"/>
-                                                <subviews>
-                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DuE-P2-g6D">
-                                                        <rect key="frame" x="40" y="0.0" width="20" height="50"/>
-                                                        <animations/>
-                                                    </activityIndicatorView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zx6-l5-JMl">
-                                                        <rect key="frame" x="29" y="50" width="42" height="50"/>
-                                                        <animations/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <animations/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="EXs-fb-UN1"/>
-                                                    <constraint firstAttribute="width" constant="100" id="y0k-Zz-Ay5"/>
-                                                </constraints>
-                                            </stackView>
-                                        </subviews>
-                                        <animations/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="120" id="C2E-xb-Ufh"/>
-                                            <constraint firstItem="TR9-bc-YqY" firstAttribute="centerX" secondItem="P0U-Pu-iFH" secondAttribute="centerX" id="VUO-qC-gq4"/>
-                                            <constraint firstAttribute="height" constant="120" id="Wws-KM-1gR"/>
-                                            <constraint firstItem="TR9-bc-YqY" firstAttribute="centerY" secondItem="P0U-Pu-iFH" secondAttribute="centerY" id="era-ca-HDv"/>
-                                            <constraint firstItem="GFX-gB-kOW" firstAttribute="centerX" secondItem="P0U-Pu-iFH" secondAttribute="centerX" id="i8j-4g-GLL"/>
-                                            <constraint firstItem="GFX-gB-kOW" firstAttribute="centerY" secondItem="P0U-Pu-iFH" secondAttribute="centerY" id="owq-uY-TRO"/>
-                                        </constraints>
-                                    </view>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -92,8 +48,6 @@
                                     <constraint firstAttribute="trailing" secondItem="QtZ-9n-Lq9" secondAttribute="trailing" id="DHy-xd-XjH"/>
                                     <constraint firstItem="QtZ-9n-Lq9" firstAttribute="leading" secondItem="f4m-CC-fK9" secondAttribute="leading" id="DQT-qb-mc5"/>
                                     <constraint firstAttribute="bottom" secondItem="QtZ-9n-Lq9" secondAttribute="bottom" id="JJY-Wy-o32"/>
-                                    <constraint firstItem="P0U-Pu-iFH" firstAttribute="centerX" secondItem="f4m-CC-fK9" secondAttribute="centerX" id="a22-JS-Tpr"/>
-                                    <constraint firstItem="P0U-Pu-iFH" firstAttribute="centerY" secondItem="f4m-CC-fK9" secondAttribute="centerY" id="yoX-ZY-gMg"/>
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6jV-4J-bmF">
@@ -156,14 +110,60 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="activity" destination="DuE-P2-g6D" id="XCf-qi-Evd"/>
-                        <outlet property="hudMessage" destination="zx6-l5-JMl" id="4h2-Gh-JFW"/>
-                        <outlet property="hudView" destination="P0U-Pu-iFH" id="CcM-3e-37r"/>
+                        <outlet property="hudView" destination="P0U-Pu-iFH" id="oCZ-9m-drC"/>
                         <outlet property="resultImageView" destination="WDA-vB-GjH" id="dKa-Xe-8Kc"/>
                         <outlet property="scrollView" destination="QtZ-9n-Lq9" id="dLl-04-JNS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P0U-Pu-iFH" userLabel="HUD" customClass="HUDView" customModule="navtest" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                    <subviews>
+                        <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GFX-gB-kOW">
+                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                            <animations/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="120" id="AMd-wc-a71"/>
+                                <constraint firstAttribute="height" constant="120" id="I5Q-lG-nLR"/>
+                            </constraints>
+                        </view>
+                        <stackView contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TR9-bc-YqY">
+                            <rect key="frame" x="10" y="10" width="100" height="100"/>
+                            <subviews>
+                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DuE-P2-g6D">
+                                    <rect key="frame" x="40" y="0.0" width="20" height="50"/>
+                                    <animations/>
+                                </activityIndicatorView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zx6-l5-JMl">
+                                    <rect key="frame" x="29" y="50" width="42" height="50"/>
+                                    <animations/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="100" id="EXs-fb-UN1"/>
+                                <constraint firstAttribute="width" constant="100" id="y0k-Zz-Ay5"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="C2E-xb-Ufh"/>
+                        <constraint firstItem="TR9-bc-YqY" firstAttribute="centerX" secondItem="P0U-Pu-iFH" secondAttribute="centerX" id="VUO-qC-gq4"/>
+                        <constraint firstAttribute="height" constant="120" id="Wws-KM-1gR"/>
+                        <constraint firstItem="TR9-bc-YqY" firstAttribute="centerY" secondItem="P0U-Pu-iFH" secondAttribute="centerY" id="era-ca-HDv"/>
+                        <constraint firstItem="GFX-gB-kOW" firstAttribute="centerX" secondItem="P0U-Pu-iFH" secondAttribute="centerX" id="i8j-4g-GLL"/>
+                        <constraint firstItem="GFX-gB-kOW" firstAttribute="centerY" secondItem="P0U-Pu-iFH" secondAttribute="centerY" id="owq-uY-TRO"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="activity" destination="DuE-P2-g6D" id="QZo-Bt-jQD"/>
+                        <outlet property="message" destination="zx6-l5-JMl" id="WnJ-T2-pBl"/>
+                    </connections>
+                </view>
             </objects>
             <point key="canvasLocation" x="245" y="317"/>
         </scene>

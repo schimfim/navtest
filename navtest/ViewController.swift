@@ -13,21 +13,23 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     // add image here
     @IBOutlet var resultImageView: UIImageView!
     @IBOutlet var scrollView: UIScrollView!
-    @IBOutlet var activity: UIActivityIndicatorView!
-    @IBOutlet var hudView: UIView!
-    @IBOutlet var hudMessage: UILabel!
+    @IBOutlet var hudView: HUDView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.view.addSubview(hudView)
         loadFilters()
         Filter.resultImageView = resultImageView
         Filter.origImage = resultImageView.image!
-        Filter.activity = self.activity
         Filter.hud = self.hudView
-        Filter.hudMessage = self.hudMessage
         
 		updateScrollViewSettings()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        hudView.setup()
     }
 
 	func updateScrollViewSettings() {

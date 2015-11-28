@@ -30,9 +30,7 @@ class Filter: NSObject, NSCoding {
     
     static var resultImageView: UIImageView!
     static var origImage: UIImage!
-    static var activity: UIActivityIndicatorView!
-    static var hud: UIView!
-    static var hudMessage: UILabel!
+    static var hud: HUDView!
     
     static private var currentFilter: Filter?
     static private var context: CIContext?
@@ -73,8 +71,7 @@ class Filter: NSObject, NSCoding {
     
     static func updateResultImageAsync() {
     	NSLog("1 Entering update method")
-    	activity.startAnimating()
-        hudMessage.text = "Filtering..."
+        hud.startProgress()
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_UTILITY, 0)) {
             NSLog("2 Starting async task")
             let outputImage = currentFilter!.process(inImage!)
@@ -85,9 +82,8 @@ class Filter: NSObject, NSCoding {
             NSLog("2.1 Ending async task")
             dispatch_async(dispatch_get_main_queue()) {
             	NSLog("3 Dispatch to main queue")
-                activity.stopAnimating()
                 Filter.resultImageView.image = out
-                hudMessage.text = "Filtering done!"
+                hud.stopProgress()
                 //currentFilter?.saveFilters()
                 NSLog("3.1 Main queue done")
             }
