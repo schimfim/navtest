@@ -31,6 +31,8 @@ class Filter: NSObject, NSCoding {
     static var resultImageView: UIImageView!
     static var origImage: UIImage!
     static var activity: UIActivityIndicatorView!
+    static var hud: UIView!
+    static var hudMessage: UILabel!
     
     static private var currentFilter: Filter?
     static private var context: CIContext?
@@ -40,7 +42,7 @@ class Filter: NSObject, NSCoding {
         NSLog("Filter setup")
         //context = CIContext(options:[kCIContextUseSoftwareRenderer: true])
         let eaglContext = EAGLContext(API: .OpenGLES2)
-		let context = CIContext(EAGLContext: eaglContext)
+		context = CIContext(EAGLContext: eaglContext)
 
         return [FPalette.init("P01", preset: 0), FPalette.init("P02", preset: 1), FPalette.init("P03", preset: 2), FPalette.init("P04", preset: 3)]
     }
@@ -72,18 +74,20 @@ class Filter: NSObject, NSCoding {
     static func updateResultImageAsync() {
     	NSLog("1 Entering update method")
     	activity.startAnimating()
+        hudMessage.text = "Filtering..."
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_UTILITY, 0)) {
             NSLog("2 Starting async task")
             let outputImage = currentFilter!.process(inImage!)
+            //context!.drawImage(outputImage, inRect: outputImage.extent, fromRect: outputImage.extent)
             let cgimg = context!.createCGImage(outputImage, fromRect: outputImage.extent)
-            //ciContext.drawImage(filter.outputImage, inRect: outputBounds, fromRect: inputBounds)
             let out = UIImage(CGImage: cgimg, scale: 1.0, orientation:.Up)
             //sleep(2)
             NSLog("2.1 Ending async task")
             dispatch_async(dispatch_get_main_queue()) {
             	NSLog("3 Dispatch to main queue")
                 activity.stopAnimating()
-                //Filter.resultImageView.image = out
+                Filter.resultImageView.image = out
+                hudMessage.text = "Filtering done!"
                 //currentFilter?.saveFilters()
                 NSLog("3.1 Main queue done")
             }

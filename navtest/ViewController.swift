@@ -14,6 +14,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBOutlet var resultImageView: UIImageView!
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var activity: UIActivityIndicatorView!
+    @IBOutlet var hudView: UIView!
+    @IBOutlet var hudMessage: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         Filter.resultImageView = resultImageView
         Filter.origImage = resultImageView.image!
         Filter.activity = self.activity
+        Filter.hud = self.hudView
+        Filter.hudMessage = self.hudMessage
         
 		updateScrollViewSettings()
     }
