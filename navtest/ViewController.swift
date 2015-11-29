@@ -83,7 +83,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     }
     
     @IBAction func saveImage(sender: UIBarButtonItem) {
-        UIImageWriteToSavedPhotosAlbum(resultImageView.image!, nil, nil, nil)
+        UIImageWriteToSavedPhotosAlbum(resultImageView.image!, hudView, "image:didFinishSavingWithError:contextInfo:", nil)
+        //UIImageWriteToSavedPhotosAlbum(yourImage, self, "image:didFinishSavingWithError:contextInfo:", nil)
     }
     
     func loadFilters() -> [Filter]? {

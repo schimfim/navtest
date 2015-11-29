@@ -13,7 +13,8 @@ class HUDView: UIView {
     @IBOutlet var activity: UIActivityIndicatorView!
     @IBOutlet var message: UILabel!
     
-    var cancelled: Bool = false
+    var cancelled = false
+    var inProgress = false
     
     func setup() {
         self.hidden = true
@@ -31,23 +32,24 @@ class HUDView: UIView {
                 return
             }
             else {
-                // main queue???
-                dispatch_async(dispatch_get_global_queue(QOS_CLASS_UTILITY, 0)) {
-                    self.startProgress()
-                }
+                self.startProgress()
             }
         }
     }
     
     func startProgress() {
         self.hidden = false
+        self.inProgress = true
         activity.startAnimating()
         message.text = "Filtering..."
     }
     
     func stopProgress() {
-        activity.stopAnimating()
-        showPrompt("Filtering done!", duration: 2.0)
+        if self.inProgress {
+            self.inProgress = false
+            activity.stopAnimating()
+            showPrompt("Filtering done!", duration: 2.0)
+        }
     }
     
     func showPrompt(text: String, duration: Double) {
@@ -61,6 +63,16 @@ class HUDView: UIView {
     
     func cancel() {
         cancelled = true
+    }
+    
+    // Save image callback
+    func image(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo:UnsafePointer<Void>) {
+        if error == nil {
+            showPrompt("Saved!", duration: 2.0)
+            print("Saved!")
+        } else {
+            showPrompt("Save Error!", duration: 2.0)
+        }
     }
     
     // UIView
