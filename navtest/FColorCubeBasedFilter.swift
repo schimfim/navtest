@@ -85,5 +85,20 @@ class FColorCubeBasedFilter: Filter {
         let outputImage = filter.outputImage
         return outputImage!
     }
+    
+    // MARK : NSCoding
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+		super.encodeWithCoder(aCoder)
+		aCoder.encodeObject(NCUBE, forKey: PropertyKey.nameKey)
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        let NCUBE = aDecoder.decodeObjectForKey(PropertyKey.nameKey) as! String
+        
+        // Must call designated initializer.
+        self.init(name)
+    }
 
 }
