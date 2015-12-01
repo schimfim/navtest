@@ -87,7 +87,7 @@ class FColorCubeBasedFilter: Filter {
     }
     
     // MARK : NSCoding
-    
+    /*
     override func encodeWithCoder(aCoder: NSCoder) {
 		super.encodeWithCoder(aCoder)
 		aCoder.encodeObject(NCUBE, forKey: PropertyKey.nameKey)
@@ -100,5 +100,5 @@ class FColorCubeBasedFilter: Filter {
         // Must call designated initializer.
         self.init(name)
     }
-
+    */
 }
