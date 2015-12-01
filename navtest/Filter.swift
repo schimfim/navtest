@@ -14,7 +14,7 @@ struct PropertyKey {
     static let nameKey = "name"
 }
 
-class Filter: NSObject, NSCoding {
+class Filter: NSObject {
     
     // MARK: - Class interface
 
@@ -126,7 +126,7 @@ class Filter: NSObject, NSCoding {
             NSLog("Failed to save filters")
         }
     }
-    
+    /*
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(name, forKey: PropertyKey.nameKey)
     }
@@ -137,5 +137,5 @@ class Filter: NSObject, NSCoding {
         // Must call designated initializer.
         self.init(name)
     }
-    
+    */
 }
