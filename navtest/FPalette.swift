@@ -30,7 +30,7 @@ class FPalette: FColorCubeBasedFilter, NSCoding {
     var strength: Float = 2.0
     var cents = presets[0]
     
-    required init(_ theName: String, strength: Float) {
+    required init(_ theName: String) {
         super.init(theName)
         update()
     }
@@ -81,13 +81,10 @@ class FPalette: FColorCubeBasedFilter, NSCoding {
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        //let NCUBE = aDecoder.decodeIntForKey("ColorCube.NCUBE") as! Int
         let newName = aDecoder.decodeIntForKey("name") as! String
-        let newStrength = aDecoder.decodeFloatForKey("ColorCube.Palette.strength") as! Int
-        
-        // Must call designated initializer.
-        self.init(name:newName, strength:newStrength)
+    	self.init(newName)
+        self.NCUBE = aDecoder.decodeIntForKey("ColorCube.NCUBE") as! Int
+        self.strength = aDecoder.decodeFloatForKey("ColorCube.Palette.strength") as! Int
     }
 
 }
