@@ -25,12 +25,12 @@ let presets = [
 ]
 
 
-class FPalette: FColorCubeBasedFilter {
+class FPalette: FColorCubeBasedFilter, NSCoding {
     
     var strength: Float = 2.0
     var cents = presets[0]
     
-    required init(_ theName: String) {
+    required init(_ theName: String, strength: Float) {
         super.init(theName)
         update()
     }
@@ -73,6 +73,21 @@ class FPalette: FColorCubeBasedFilter {
             }
         }
         super.update()
+    }
+    // MARK: NSCoding
+    override func encodeWithCoder(aCoder: NSCoder) {
+		aCoder.encodeObject(NCUBE, forKey: PropertyKey.nameKey)
+		aCoder.encodeObject(NCUBE, forKey: PropertyKey.nameKey)
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        //let NCUBE = aDecoder.decodeIntForKey("ColorCube.NCUBE") as! Int
+        let newName = aDecoder.decodeIntForKey("name") as! String
+        let newStrength = aDecoder.decodeFloatForKey("ColorCube.Palette.strength") as! Int
+        
+        // Must call designated initializer.
+        self.init(name:newName, strength:newStrength)
     }
 
 }
