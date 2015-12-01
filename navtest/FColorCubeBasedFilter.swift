@@ -38,7 +38,7 @@ struct RGB {
 
 class FColorCubeBasedFilter: Filter {
     
-    var NCUBE = 4
+    var NCUBE: Int = 4
     var cubeLength: Int?
     var cube: [RGB]?
     

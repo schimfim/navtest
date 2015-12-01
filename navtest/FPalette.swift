@@ -75,16 +75,17 @@ class FPalette: FColorCubeBasedFilter, NSCoding {
         super.update()
     }
     // MARK: NSCoding
-    override func encodeWithCoder(aCoder: NSCoder) {
-		aCoder.encodeObject(NCUBE, forKey: PropertyKey.nameKey)
-		aCoder.encodeObject(NCUBE, forKey: PropertyKey.nameKey)
+    func encodeWithCoder(aCoder: NSCoder) {
+		aCoder.encodeObject(self.name, forKey: "name")
+		aCoder.encodeInteger(NCUBE, forKey: "ColorCube.NCUBE")
+        aCoder.encodeFloat(strength, forKey: "ColorCube.Palette.strength")
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        let newName = aDecoder.decodeIntForKey("name") as! String
+        let newName = aDecoder.decodeObjectForKey("name") as! String
     	self.init(newName)
-        self.NCUBE = aDecoder.decodeIntForKey("ColorCube.NCUBE") as! Int
-        self.strength = aDecoder.decodeFloatForKey("ColorCube.Palette.strength") as! Int
+        self.NCUBE = aDecoder.decodeIntegerForKey("ColorCube.NCUBE")
+        self.strength = aDecoder.decodeFloatForKey("ColorCube.Palette.strength")
     }
 
 }
