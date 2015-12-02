@@ -36,7 +36,7 @@ struct RGB {
     }
 }
 
-class FColorCubeBasedFilter: Filter {
+class FColorCubeBasedFilter: Filter, NSCoding {
     
     var NCUBE: Int = 4
     var cubeLength: Int?
@@ -84,5 +84,18 @@ class FColorCubeBasedFilter: Filter {
         let outputImage = filter.outputImage
         return outputImage!
     }
+    
+    // MARK: NSCoding
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(self.name, forKey: "name")
+        aCoder.encodeInteger(NCUBE, forKey: "ColorCube.NCUBE")
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        self.init()
+        self.name = aDecoder.decodeObjectForKey("name") as! String
+        self.NCUBE = aDecoder.decodeIntegerForKey("ColorCube.NCUBE")
+    }
+
 
 }
