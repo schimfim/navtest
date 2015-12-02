@@ -72,11 +72,6 @@ class FColorCubeBasedFilter: Filter {
         reset()
     }
     
-    required init(_ theName: String) {
-        super.init(theName)
-        reset()
-    }
-    
     override func process(inImage: CIImage) -> CIImage {
         filter = CIFilter(name:"CIColorCube")!
         filter.setValue(inImage, forKey: kCIInputImageKey)

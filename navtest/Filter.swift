@@ -48,7 +48,7 @@ class Filter: NSObject {
     static func addFilter(type: String) {
     	var newFilter: Filter!
         switch type {
-    		default: newFilter = FPalette.init("#unnamed")
+    		default: newFilter = FPalette.init()
         }
         filters.append(newFilter)
     }
@@ -105,13 +105,21 @@ class Filter: NSObject {
     }
     
     // MARK: - Instance interface
+    
+    var name: String = "unnamed"
 
-    var name: String
-
-    required init(_ theName: String) {
-        name = theName
+    // All filter instance fields must be vars with default values
+    required override init() {
         super.init()
     }
+    
+    // Per filter class convenience initializer, setting class vars (also inherited vars)
+    /* EXAMPLE:
+    convenience init(_ theName: String) {
+        name = theName
+        self.init()
+    }
+    */
     
     func process(inImage: CIImage) -> CIImage {
         NSLog("Missing override of process in filter name %@", name)

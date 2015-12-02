@@ -13,9 +13,9 @@ class FHueAdjust: Filter {
     var value: Float
     let filter = CIFilter(name: "CIHueAdjust")!
     
-    required init(_ theName: String) {
+    required init() {
         value = 0.0
-        super.init(theName)
+        super.init()
     }
     
     override func process(inImage: CIImage) -> CIImage {
