@@ -47,6 +47,11 @@ class FColorCubeBasedFilter: Filter {
     
     var filter = CIFilter(name:"CIColorCube")!
     
+    required init() {
+    	super.init()
+    	reset()
+    }
+    
     func reset() {
         cubeLength = NCUBE * NCUBE * NCUBE
         cube = [RGB](count:cubeLength!, repeatedValue:RGB(0,0,0))
@@ -59,7 +64,6 @@ class FColorCubeBasedFilter: Filter {
                 }
             }
         }
-        //cubeData = NSData(bytes: cube!, length: cubeLength! * sizeof(RGB))
         update()
     }
     
@@ -80,20 +84,5 @@ class FColorCubeBasedFilter: Filter {
         let outputImage = filter.outputImage
         return outputImage!
     }
-    
-    // MARK : NSCoding
-    /*
-    override func encodeWithCoder(aCoder: NSCoder) {
-		super.encodeWithCoder(aCoder)
-		aCoder.encodeObject(NCUBE, forKey: PropertyKey.nameKey)
-    }
-    
-    required convenience init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        let NCUBE = aDecoder.decodeIntForKey(PropertyKey.nameKey) as! Int
-        
-        // Must call designated initializer.
-        self.init(name)
-    }
-    */
+
 }
