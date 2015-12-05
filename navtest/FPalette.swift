@@ -29,6 +29,7 @@ class FPalette: FColorCubeBasedFilter {
     
     var strength: Float = 2.0
     var cents = presets[0]
+    var presetNumber = 0
     
     // All filter instance fields must be vars with default values
     required init() {
@@ -40,6 +41,7 @@ class FPalette: FColorCubeBasedFilter {
     convenience init(_ theName: String, preset: Int) {
         self.init()
         self.name = theName
+        presetNumber = preset
         cents = presets[preset]
         update()
     }
@@ -81,11 +83,16 @@ class FPalette: FColorCubeBasedFilter {
     // MARK: NSCoding
     override func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeFloat(strength, forKey: "ColorCube.Palette.strength")
+        aCoder.encodeInteger(presetNumber, forKey: "ColorCube.Palette.presetNumber")
         super.encodeWithCoder(aCoder)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
     	self.init()
+        self.name = aDecoder.decodeObjectForKey("name") as! String
+        self.NCUBE = aDecoder.decodeIntegerForKey("ColorCube.NCUBE")
+        self.presetNumber = aDecoder.decodeIntegerForKey("ColorCube.Palette.presetNumber")
+        self.cents = presets[presetNumber]
         self.strength = aDecoder.decodeFloatForKey("ColorCube.Palette.strength")
     }
 

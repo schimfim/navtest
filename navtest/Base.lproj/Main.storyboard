@@ -17,10 +17,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="f4m-CC-fK9" userLabel="Image area">
+                            <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="f4m-CC-fK9" userLabel="Image area">
                                 <rect key="frame" x="0.0" y="20" width="600" height="336"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" minimumZoomScale="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="QtZ-9n-Lq9">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" minimumZoomScale="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="QtZ-9n-Lq9">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="336"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="WDA-vB-GjH">
