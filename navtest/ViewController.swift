@@ -42,7 +42,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let minScale = min(scaleWidth, scaleHeight);
         scrollView.minimumZoomScale = minScale;
         scrollView.maximumZoomScale = 1.0
-        scrollView.zoomScale = minScale;
+        scrollView.zoomScale = minScale
         NSLog("zoomScale: %f", minScale)
 	}
 

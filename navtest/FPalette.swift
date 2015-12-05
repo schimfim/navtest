@@ -94,6 +94,7 @@ class FPalette: FColorCubeBasedFilter {
         self.presetNumber = aDecoder.decodeIntegerForKey("ColorCube.Palette.presetNumber")
         self.cents = presets[presetNumber]
         self.strength = aDecoder.decodeFloatForKey("ColorCube.Palette.strength")
+        update()
     }
 
 }
