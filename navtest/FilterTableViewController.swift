@@ -14,7 +14,7 @@ class FilterTableViewController: UITableViewController {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
@@ -56,6 +56,9 @@ class FilterTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("FilterCell")!
         cell.textLabel?.text = Filter.filters[indexPath.row].name
+        // Make accessory button invisible by default
+        cell.accessoryType = .None
+
         return cell
     }
 
@@ -111,8 +114,14 @@ class FilterTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         Filter.setCurrentFilter(indexPath.row)
         Filter.updateResultImageAsync()
-        //let out = Filter.processCurrentFilter()
-        //Filter.resultImage.image = out
+        
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        // Hide edit button from visible cells
+        for c in tableView.visibleCells {
+            c.accessoryType = .None
+        }
+        // Show accessory button
+        cell?.accessoryType = .DetailButton
     }
     
     // MARK: - Navigation

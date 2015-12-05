@@ -16,6 +16,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBOutlet var hudView: HUDView!
     
     override func viewDidLoad() {
+        // init Filter manager
+        Filter.setup()
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
