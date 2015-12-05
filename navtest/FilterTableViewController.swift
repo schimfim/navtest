@@ -20,6 +20,7 @@ class FilterTableViewController: UITableViewController {
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
         
         Filter.setInImage(Filter.origImage)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,6 +37,7 @@ class FilterTableViewController: UITableViewController {
         self.tableView.reloadData()
         Filter.rowToEdit = Filter.filters.count - 1
         Filter.setCurrentFilter(Filter.rowToEdit)
+        Filter.saveFilters()
         performSegueWithIdentifier(Filter.segueIDforRowToEdit(), sender: self)
     }
 
@@ -71,6 +73,7 @@ class FilterTableViewController: UITableViewController {
             // Delete the row from the data source
             Filter.filters.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            Filter.saveFilters()
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
@@ -83,6 +86,7 @@ class FilterTableViewController: UITableViewController {
         Filter.filters.insert(movedObject, atIndex: toIndexPath.row)
         // NSLog("%@", "\(fromIndexPath.row) => \(toIndexPath.row) \(filters)")
         // To check for correctness enable: self.tableView.reloadData()
+        Filter.saveFilters()
     }
 
      /*

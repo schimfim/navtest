@@ -29,5 +29,6 @@ class FPaletteVC: FilterEditorViewController {
         filter!.reset()
         filter?.update()
         Filter.updateResultImageAsync()
+        Filter.saveFilters()
     }
 }

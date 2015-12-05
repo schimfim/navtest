@@ -20,7 +20,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         // Do any additional setup after loading the view, typically from a nib.
         
         self.view.addSubview(hudView)
-        loadFilters()
+        Filter.loadFilters()
         Filter.resultImageView = resultImageView
         Filter.origImage = resultImageView.image!
         Filter.hud = self.hudView
@@ -87,8 +87,4 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         //UIImageWriteToSavedPhotosAlbum(yourImage, self, "image:didFinishSavingWithError:contextInfo:", nil)
     }
     
-    func loadFilters() -> [Filter]? {
-        return NSKeyedUnarchiver.unarchiveObjectWithFile(Filter.ArchiveURL.path!) as? [Filter]
-    }
-
 }

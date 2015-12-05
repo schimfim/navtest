@@ -25,7 +25,7 @@ class Filter: NSObject {
     
     // MARK: Properties
     
-    static var filters: [Filter] = Filter.setup()
+    static var filters: [Filter]!
     static var rowToEdit = 0
     
     static var resultImageView: UIImageView!
@@ -36,12 +36,14 @@ class Filter: NSObject {
     static private var context: CIContext?
     static private var inImage: CIImage?
     
-    private static func setup() -> [Filter] {
+    static func setup() {
         NSLog("Filter setup")
         //context = CIContext(options:[kCIContextUseSoftwareRenderer: true])
         let eaglContext = EAGLContext(API: .OpenGLES2)
 		context = CIContext(EAGLContext: eaglContext)
-
+    }
+    
+    private static func defaultFilters() -> [Filter] {
         return [FPalette.init("P01", preset: 0), FPalette.init("P02", preset: 1), FPalette.init("P03", preset: 2), FPalette.init("P04", preset: 3)]
     }
     
@@ -96,12 +98,29 @@ class Filter: NSObject {
     static func updateResultImage() {
         let out = Filter.processCurrentFilter()
         Filter.resultImageView.image = out
-        currentFilter?.saveFilters()
+        //currentFilter?.saveFilters()
     }
     
     static func segueIDforRowToEdit()->String {
         NSLog("Performing segue: %@", singleSegueID)
         return singleSegueID
+    }
+    
+    // MARK: Loading and saving filters
+    
+    static func saveFilters() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(Filter.filters, toFile: Filter.ArchiveURL.path!)
+        if !isSuccessfulSave {
+            NSLog("Failed to save filters")
+        }
+    }
+    
+    static func loadFilters() {
+        if let storedFilters = (NSKeyedUnarchiver.unarchiveObjectWithFile(Filter.ArchiveURL.path!) as? [Filter]) {
+            filters = storedFilters
+        } else {
+            filters = defaultFilters()
+        }
     }
     
     // MARK: - Instance interface
@@ -125,25 +144,4 @@ class Filter: NSObject {
         NSLog("Missing override of process in filter name %@", name)
         return inImage
     }
-    
-    // MARK: NSCoding
-    
-    func saveFilters() {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(Filter.filters, toFile: Filter.ArchiveURL.path!)
-        if !isSuccessfulSave {
-            NSLog("Failed to save filters")
-        }
-    }
-    /*
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(name, forKey: PropertyKey.nameKey)
-    }
-    
-    required convenience init?(coder aDecoder: NSCoder) {
-        let name = aDecoder.decodeObjectForKey(PropertyKey.nameKey) as! String
-        
-        // Must call designated initializer.
-        self.init(name)
-    }
-    */
 }
