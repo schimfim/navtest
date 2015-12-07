@@ -59,7 +59,7 @@ class FPalette: FColorCubeBasedFilter {
                     // calc inverse distances
                     for ic in 0..<cents.count {
                         let c = cents[ic]
-                        idist[ic] = 1.0 / ( pow(ci.r-c.r,2) + pow(ci.g-c.g,2) + pow(ci.b-c.b,2) )
+                        idist[ic] = sqrt(3.0 / ( pow(ci.r-c.r,2) + pow(ci.g-c.g,2) + pow(ci.b-c.b,2) ))
                         sd = sd + powf(idist[ic], strength)
                     }
                     // calc membership
