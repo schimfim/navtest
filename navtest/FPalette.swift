@@ -18,10 +18,10 @@ let yellow_c  = RGB(1,1,0)
 let cyan_c    = RGB(0,1,1)
 
 let presets = [
-    [black_c, white_c, red_c, green_c, blue_c, magenta_c, yellow_c, cyan_c],
+    [black_c, white_c, red_c, green_c, blue_c, magenta_c, yellow_c, cyan_c], // full
     [black_c, white_c, yellow_c, cyan_c],
-    [white_c, black_c, red_c, green_c, blue_c],
-    [white_c, black_c, red_c, green_c, blue_c, RGB(h: 2/3, s: 0.5, v: 1.0)]
+    [black_c, red_c, green_c, blue_c],
+    [white_c, black_c, blue_c]
 ]
 
 
