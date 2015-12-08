@@ -17,20 +17,18 @@ let cyan_c    = RGB(0,1,1) // 5
 let blue_c    = RGB(0,0,1) // 6
 let magenta_c = RGB(1,0,1) // 7
 
-
-
 let presets = [
-    [white_c, black_c, red_c, yellow_c, green_c, cyan_c, blue_c, magenta_c], // full
-    [black_c, white_c, yellow_c, cyan_c],
-    [black_c, red_c, green_c, blue_c],
-    [white_c, black_c, blue_c]
+    0: (cents:[white_c, black_c, red_c, yellow_c, green_c, cyan_c, blue_c, magenta_c], name:"Full"),
+    1: (cents:[black_c, white_c, yellow_c, cyan_c], name:"yellow/cyan"),
+    2: (cents:[black_c, red_c, green_c, blue_c], name:"RGB"),
+    3: (cents:[white_c, black_c, blue_c], name:"wBb")
 ]
 
 
 class FPalette: FColorCubeBasedFilter {
     
     var strength: Float = 2.0
-    var cents = presets[0]
+    var cents = presets[0].cents
     var presetNumber = 0
     
     // All filter instance fields must be vars with default values
@@ -40,11 +38,12 @@ class FPalette: FColorCubeBasedFilter {
     }
     
     // Per filter class convenience initializer, setting class vars (also inherited vars)
-    convenience init(_ theName: String, preset: Int) {
+    convenience init(preset: Int) {
         self.init()
-        self.name = theName
+        let p = presets[preset]
+        self.name = p.name
         presetNumber = preset
-        cents = presets[preset]
+        cents = presets[preset].cents
         update()
     }
     
