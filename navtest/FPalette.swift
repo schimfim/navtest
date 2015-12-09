@@ -8,29 +8,10 @@
 
 import UIKit
 
-let white_c   = RGB(1,1,1) // 0
-let black_c   = RGB(0,0,0) // 1
-let red_c     = RGB(1,0,0) // 2
-let yellow_c  = RGB(1,1,0) // 3
-let green_c   = RGB(0,1,0) // 4
-let cyan_c    = RGB(0,1,1) // 5
-let blue_c    = RGB(0,0,1) // 6
-let magenta_c = RGB(1,0,1) // 7
-
-
-
-let presets = [
-    [white_c, black_c, red_c, yellow_c, green_c, cyan_c, blue_c, magenta_c], // full
-    [black_c, white_c, yellow_c, cyan_c],
-    [black_c, red_c, green_c, blue_c],
-    [white_c, black_c, blue_c]
-]
-
-
 class FPalette: FColorCubeBasedFilter {
     
     var strength: Float = 2.0
-    var cents = presets[0]
+    var cents: [RGB] = []
     var presetNumber = 0
     
     // All filter instance fields must be vars with default values
@@ -40,11 +21,11 @@ class FPalette: FColorCubeBasedFilter {
     }
     
     // Per filter class convenience initializer, setting class vars (also inherited vars)
-    convenience init(_ theName: String, preset: Int) {
+    convenience init(_ theName: String, cents:[Filter]) {
         self.init()
         self.name = theName
-        presetNumber = preset
-        cents = presets[preset]
+        //presetNumber = preset
+        self.cents = cents
         update()
     }
     
@@ -86,6 +67,7 @@ class FPalette: FColorCubeBasedFilter {
     override func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeFloat(strength, forKey: "ColorCube.Palette.strength")
         aCoder.encodeInteger(presetNumber, forKey: "ColorCube.Palette.presetNumber")
+        aCoder.encodeObject(cents, forKey: "ColorCube.Palette.cents")
         super.encodeWithCoder(aCoder)
     }
     
@@ -93,8 +75,8 @@ class FPalette: FColorCubeBasedFilter {
     	self.init()
         self.name = aDecoder.decodeObjectForKey("name") as! String
         self.NCUBE = aDecoder.decodeIntegerForKey("ColorCube.NCUBE")
-        self.presetNumber = aDecoder.decodeIntegerForKey("ColorCube.Palette.presetNumber")
-        self.cents = presets[presetNumber]
+        //self.presetNumber = aDecoder.decodeIntegerForKey("ColorCube.Palette.presetNumber")
+        self.cents = aDecoder.decodeObjectForKey("ColorCube.Palette.cents") as! [RGB]
         self.strength = aDecoder.decodeFloatForKey("ColorCube.Palette.strength")
         update()
     }
