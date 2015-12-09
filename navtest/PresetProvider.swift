@@ -7,7 +7,14 @@ let cyan_c    = RGB(0,1,1) // 5
 let blue_c    = RGB(0,0,1) // 6
 let magenta_c = RGB(1,0,1) // 7
 
+class PresetProvider {
 
+
+
+	static func defaultFilters() -> [Filter] {
+        return [FPalette.init("P01", preset: 0), FPalette.init("P02", preset: 1), FPalette.init("P03", preset: 2), FPalette.init("P04", preset: 3)]
+    }
+}
 
 let presets = [
     [white_c, black_c, red_c, yellow_c, green_c, cyan_c, blue_c, magenta_c], // full
