@@ -21,7 +21,7 @@ class FPalette: FColorCubeBasedFilter {
     }
     
     // Per filter class convenience initializer, setting class vars (also inherited vars)
-    convenience init(_ theName: String, cents:[Filter]) {
+    convenience init(_ theName: String, cents:[RGB]) {
         self.init()
         self.name = theName
         //presetNumber = preset
@@ -50,7 +50,7 @@ class FPalette: FColorCubeBasedFilter {
                         mu[i] = powf(idist[i], strength) / sd
                     }
                     // reconstruct
-                    var newc = RGB(0,0,0)
+                    let newc = RGB(0,0,0)
                     for i in 0..<cents.count {
                         newc.r += mu[i] * cents[i].r
                         newc.g += mu[i] * cents[i].g
