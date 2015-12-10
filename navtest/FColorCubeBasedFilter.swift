@@ -9,7 +9,7 @@
 
 import UIKit
 
-struct RGB {
+class RGB: NSObject {
     var r:Float = 0.0
     var g:Float = 0.0
     var b:Float = 0.0
@@ -34,6 +34,19 @@ struct RGB {
         g = Float(ng)
         b = Float(nb)
     }
+    
+    // MARK: NSCoding RGB
+    /*
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeFloat(r, forKey: "RGB.r")
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        self.init()
+        self.name = aDecoder.decodeObjectForKey("name") as! String
+        self.NCUBE = aDecoder.decodeIntegerForKey("ColorCube.NCUBE")
+    }
+    */
 }
 
 class FColorCubeBasedFilter: Filter, NSCoding {
