@@ -36,21 +36,25 @@ struct RGB {
     }
 }
 
-class RGB: NSObject, NSCoding {
-    private let rgb = RGB
+class RGBstore: NSObject, NSCoding {
+    private let rgb
     
-    // MARK: NSCoding RGB
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeFloat(r, forKey: "RGB.r")
-        aCoder.encodeFloat(g, forKey: "RGB.g")
-        aCoder.encodeFloat(b, forKey: "RGB.b")
+    init(_ color: RGB) {
+        rgb = color
     }
     
-    required init(coder aDecoder: NSCoder) {
-        let r = aDecoder.decodeFloatForKey("RGB.r")
-        let g = aDecoder.decodeFloatForKey("RGB.g")
-        let b = aDecoder.decodeFloatForKey("RGB.b")
-        self.init(r, g, b)
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeFloat(rgb.r, forKey: "RGB.r")
+        aCoder.encodeFloat(rgb.g, forKey: "RGB.g")
+        aCoder.encodeFloat(rgb.b, forKey: "RGB.b")
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        let newCol = RGB(0,0,0)
+        let newCol.r = aDecoder.decodeFloatForKey("RGB.r")
+        let newCol.g = aDecoder.decodeFloatForKey("RGB.g")
+        let newCol.b = aDecoder.decodeFloatForKey("RGB.b")
+        self.init(newCol)
     }
 }
 
