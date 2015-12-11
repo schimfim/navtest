@@ -9,7 +9,7 @@
 
 import UIKit
 
-class RGB: NSObject, NSCoding {
+struct RGB {
     var r:Float = 0.0
     var g:Float = 0.0
     var b:Float = 0.0
@@ -34,16 +34,19 @@ class RGB: NSObject, NSCoding {
         g = Float(ng)
         b = Float(nb)
     }
+}
+
+class RGB: NSObject, NSCoding {
+    private let rgb = RGB
     
     // MARK: NSCoding RGB
-    
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeFloat(r, forKey: "RGB.r")
         aCoder.encodeFloat(g, forKey: "RGB.g")
         aCoder.encodeFloat(b, forKey: "RGB.b")
     }
     
-    required convenience init?(coder aDecoder: NSCoder) {
+    required init(coder aDecoder: NSCoder) {
         let r = aDecoder.decodeFloatForKey("RGB.r")
         let g = aDecoder.decodeFloatForKey("RGB.g")
         let b = aDecoder.decodeFloatForKey("RGB.b")
