@@ -50,7 +50,7 @@ class FPalette: FColorCubeBasedFilter {
                         mu[i] = powf(idist[i], strength) / sd
                     }
                     // reconstruct
-                    let newc = RGB(0,0,0)
+                    var newc = RGB(0,0,0)
                     for i in 0..<cents.count {
                         newc.r += mu[i] * cents[i].r
                         newc.g += mu[i] * cents[i].g
@@ -67,7 +67,13 @@ class FPalette: FColorCubeBasedFilter {
     override func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeFloat(strength, forKey: "ColorCube.Palette.strength")
         aCoder.encodeInteger(presetNumber, forKey: "ColorCube.Palette.presetNumber")
-        aCoder.encodeObject(cents, forKey: "ColorCube.Palette.cents")
+        
+        let cubeLength = NCUBE * NCUBE * NCUBE
+        var store = [RGBstore](count: cubeLength, repeatedValue: RGBstore(RGB(0,0,0)))
+        for i in 0..<cube!.count {
+            store[i] = RGBstore(cube![i])
+        }
+        aCoder.encodeObject(store, forKey: "ColorCube.Palette.cents")
         super.encodeWithCoder(aCoder)
     }
     
@@ -76,7 +82,11 @@ class FPalette: FColorCubeBasedFilter {
         self.name = aDecoder.decodeObjectForKey("name") as! String
         self.NCUBE = aDecoder.decodeIntegerForKey("ColorCube.NCUBE")
         //self.presetNumber = aDecoder.decodeIntegerForKey("ColorCube.Palette.presetNumber")
-        self.cents = aDecoder.decodeObjectForKey("ColorCube.Palette.cents") as! [RGB]
+        var store: [RGBstore]
+        store = aDecoder.decodeObjectForKey("ColorCube.Palette.cents") as! [RGBstore]
+        for i in 0..<store.count {
+            cube![i] = store[i].rgb
+        }
         self.strength = aDecoder.decodeFloatForKey("ColorCube.Palette.strength")
         update()
     }

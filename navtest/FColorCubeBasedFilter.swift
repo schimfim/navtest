@@ -37,7 +37,7 @@ struct RGB {
 }
 
 class RGBstore: NSObject, NSCoding {
-    private let rgb
+    let rgb: RGB
     
     init(_ color: RGB) {
         rgb = color
@@ -50,10 +50,10 @@ class RGBstore: NSObject, NSCoding {
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        let newCol = RGB(0,0,0)
-        let newCol.r = aDecoder.decodeFloatForKey("RGB.r")
-        let newCol.g = aDecoder.decodeFloatForKey("RGB.g")
-        let newCol.b = aDecoder.decodeFloatForKey("RGB.b")
+        var newCol = RGB(0,0,0)
+        newCol.r = aDecoder.decodeFloatForKey("RGB.r")
+        newCol.g = aDecoder.decodeFloatForKey("RGB.g")
+        newCol.b = aDecoder.decodeFloatForKey("RGB.b")
         self.init(newCol)
     }
 }
