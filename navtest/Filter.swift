@@ -112,11 +112,14 @@ class Filter: NSObject {
     }
     
     static func loadFilters() {
+        filters = PresetProvider.defaultFilters()
+        /*
         if let storedFilters = (NSKeyedUnarchiver.unarchiveObjectWithFile(Filter.ArchiveURL.path!) as? [Filter]) {
             filters = storedFilters
         } else {
             filters = PresetProvider.defaultFilters()
         }
+        */
     }
     
     // MARK: - Instance interface
