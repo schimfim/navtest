@@ -58,7 +58,7 @@ class RGBstore: NSObject, NSCoding {
     }
 }
 
-class FColorCubeBasedFilter: Filter, NSCoding {
+class FColorCubeBasedFilter: Filter {
     
     var NCUBE: Int = 4
     var cubeLength: Int?
@@ -107,17 +107,3 @@ class FColorCubeBasedFilter: Filter, NSCoding {
         return outputImage!
     }
     
-    // MARK: NSCoding
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(self.name, forKey: "name")
-        aCoder.encodeInteger(NCUBE, forKey: "ColorCube.NCUBE")
-    }
-    
-    required convenience init?(coder aDecoder: NSCoder) {
-        self.init()
-        self.name = aDecoder.decodeObjectForKey("name") as! String
-        self.NCUBE = aDecoder.decodeIntegerForKey("ColorCube.NCUBE")
-    }
-
-
-}

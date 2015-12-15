@@ -59,11 +59,10 @@ class FPalette: FColorCubeBasedFilter {
             store[i] = RGBstore(cents[i])
         }
         aCoder.encodeObject(store, forKey: "ColorCube.Palette.cents")
-        super.encodeWithCoder(aCoder)
+        aCoder.encodeObject(name, forKey: "name")
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-    	self.init()
         let name = aDecoder.decodeObjectForKey("name") as! String
         var store: [RGBstore]
         store = aDecoder.decodeObjectForKey("ColorCube.Palette.cents") as! [RGBstore]
