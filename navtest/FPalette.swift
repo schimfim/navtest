@@ -6,31 +6,26 @@
 //  Copyright © 2015 Frank Reine. All rights reserved.
 //
 
-import UIKit
-
 class FPalette: FColorCubeBasedFilter {
     
     var strength: Float = 2.0
-    var cents: [RGB] = []
-    var presetNumber = 0
+    var cents: [RGB] = [white_c, black_c]
     
     // All filter instance fields must be vars with default values
     required init() {
+    	// allocate storage and CIFilter
         super.init()
-        update()
     }
     
     // Per filter class convenience initializer, setting class vars (also inherited vars)
     convenience init(_ theName: String, cents:[RGB]) {
         self.init()
         self.name = theName
-        //presetNumber = preset
         self.cents = cents
-        update()
+        updateCube()
     }
     
-    override func update() {
-        
+    func updateCube() {
         for ib in 0..<NCUBE {
             for ig in 0..<NCUBE {
                 for ir in 0..<NCUBE {
@@ -60,7 +55,6 @@ class FPalette: FColorCubeBasedFilter {
                 }
             }
         }
-        super.update()
     }
     
     // MARK: NSCoding
@@ -80,7 +74,6 @@ class FPalette: FColorCubeBasedFilter {
     	self.init()
         self.name = aDecoder.decodeObjectForKey("name") as! String
         self.NCUBE = aDecoder.decodeIntegerForKey("ColorCube.NCUBE")
-        //self.presetNumber = aDecoder.decodeIntegerForKey("ColorCube.Palette.presetNumber")
         var store: [RGBstore]
         store = aDecoder.decodeObjectForKey("ColorCube.Palette.cents") as! [RGBstore]
         cents = [RGB](count: store.count, repeatedValue: RGB(0,0,0))
@@ -88,8 +81,6 @@ class FPalette: FColorCubeBasedFilter {
             cents[i] = store[i].rgb
         }
         self.strength = aDecoder.decodeFloatForKey("ColorCube.Palette.strength")
-        reset()
-        update()
+        updateCube()
     }
-
 }
