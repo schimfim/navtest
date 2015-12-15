@@ -61,7 +61,7 @@ class RGBstore: NSObject, NSCoding {
 class FColorCubeBasedFilter: Filter {
     
     var NCUBE: Int = 4
-    var cubeLength: Int?
+    var cubeLength = NCUBE * NCUBE * NCUBE
     var cube: [RGB]?
     
     // data structure for CIFilter:cube3d
@@ -69,7 +69,7 @@ class FColorCubeBasedFilter: Filter {
     
     var filter = CIFilter(name:"CIColorCube")!
     
-    required init() {
+    init() {
     	super.init()
     	reset()
     }
@@ -106,4 +106,4 @@ class FColorCubeBasedFilter: Filter {
         let outputImage = filter.outputImage
         return outputImage!
     }
-    
+}

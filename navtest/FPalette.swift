@@ -6,6 +6,8 @@
 //  Copyright © 2015 Frank Reine. All rights reserved.
 //
 
+import UIKit
+
 class FPalette: FColorCubeBasedFilter {
     
     var strength: Float = 2.0
@@ -51,7 +53,7 @@ class FPalette: FColorCubeBasedFilter {
     }
     
     // MARK: NSCoding
-    override func encodeWithCoder(aCoder: NSCoder) {
+    func encodeWithCoder(aCoder: NSCoder) {
         
         aCoder.encodeFloat(strength, forKey: "ColorCube.Palette.strength")
         var store = [RGBstore](count: cents.count, repeatedValue: RGBstore(RGB(0,0,0)))

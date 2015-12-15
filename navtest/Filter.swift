@@ -42,15 +42,7 @@ class Filter: NSObject {
         let eaglContext = EAGLContext(API: .OpenGLES2)
 		context = CIContext(EAGLContext: eaglContext)
     }
-    
-    static func addFilter(type: String) {
-    	var newFilter: Filter!
-        switch type {
-    		default: newFilter = FPalette.init()
-        }
-        filters.append(newFilter)
-    }
-    
+        
     static func setInImage(newImage : UIImage) {
         inImage = CIImage(CGImage: newImage.CGImage!)
     }
@@ -126,11 +118,6 @@ class Filter: NSObject {
     
     var name: String = "unnamed"
 
-    // All filter instance fields must be vars with default values
-    required override init() {
-        super.init()
-    }
-    
     // Per filter class convenience initializer, setting class vars (also inherited vars)
     /* EXAMPLE:
     convenience init(_ theName: String) {
