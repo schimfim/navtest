@@ -9,17 +9,10 @@
 class FPalette: FColorCubeBasedFilter {
     
     var strength: Float = 2.0
-    var cents: [RGB] = [white_c, black_c]
+    let cents: [RGB]
     
-    // All filter instance fields must be vars with default values
-    required init() {
-    	// allocate storage and CIFilter
+    init(_ theName: String, cents:[RGB]) {
         super.init()
-    }
-    
-    // Per filter class convenience initializer, setting class vars (also inherited vars)
-    convenience init(_ theName: String, cents:[RGB]) {
-        self.init()
         self.name = theName
         self.cents = cents
         updateCube()
@@ -59,9 +52,8 @@ class FPalette: FColorCubeBasedFilter {
     
     // MARK: NSCoding
     override func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeFloat(strength, forKey: "ColorCube.Palette.strength")
-        aCoder.encodeInteger(presetNumber, forKey: "ColorCube.Palette.presetNumber")
         
+        aCoder.encodeFloat(strength, forKey: "ColorCube.Palette.strength")
         var store = [RGBstore](count: cents.count, repeatedValue: RGBstore(RGB(0,0,0)))
         for i in 0..<cents.count {
             store[i] = RGBstore(cents[i])
@@ -72,14 +64,14 @@ class FPalette: FColorCubeBasedFilter {
     
     required convenience init?(coder aDecoder: NSCoder) {
     	self.init()
-        self.name = aDecoder.decodeObjectForKey("name") as! String
-        self.NCUBE = aDecoder.decodeIntegerForKey("ColorCube.NCUBE")
+        let name = aDecoder.decodeObjectForKey("name") as! String
         var store: [RGBstore]
         store = aDecoder.decodeObjectForKey("ColorCube.Palette.cents") as! [RGBstore]
-        cents = [RGB](count: store.count, repeatedValue: RGB(0,0,0))
+        var cents = [RGB](count: store.count, repeatedValue: RGB(0,0,0))
         for i in 0..<store.count {
             cents[i] = store[i].rgb
         }
+        self.init(name, cents:cents)
         self.strength = aDecoder.decodeFloatForKey("ColorCube.Palette.strength")
         updateCube()
     }
