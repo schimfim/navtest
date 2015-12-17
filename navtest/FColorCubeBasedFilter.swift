@@ -61,7 +61,7 @@ class RGBstore: NSObject, NSCoding {
 class FColorCubeBasedFilter: Filter {
     
     var NCUBE: Int = 4
-    var cubeLength = NCUBE * NCUBE * NCUBE
+    var cubeLength: Int = 0
     var cube: [RGB]?
     
     // data structure for CIFilter:cube3d
@@ -71,35 +71,21 @@ class FColorCubeBasedFilter: Filter {
     
     init() {
     	super.init()
-    	reset()
+    	setupEmptyCube()
     }
     
-    func reset() {
+    func setupEmptyCube() {
         cubeLength = NCUBE * NCUBE * NCUBE
         cube = [RGB](count:cubeLength!, repeatedValue:RGB(0,0,0))
-        let div = Float(NCUBE-1)
-        for ib in 0..<NCUBE {
-            for ig in 0..<NCUBE {
-                for ir in 0..<NCUBE {
-                    let idx = (ir + ig * NCUBE + ib * NCUBE*NCUBE)
-                    cube![idx] = RGB(Float(ir)/div, Float(ig)/div, Float(ib)/div)
-                }
-            }
-        }
-        update()
+        updateCubeData()
     }
     
-    func update() {
+    func updateCubeData() {
+    	// TODO check nocopy option
         cubeData = NSData(bytes: cube!, length: cubeLength! * sizeof(RGB))
     }
     
-    func putNCUBE(n:Int) {
-        NCUBE = n
-        reset()
-    }
-    
     override func process(inImage: CIImage) -> CIImage {
-        filter = CIFilter(name:"CIColorCube")!
         filter.setValue(inImage, forKey: kCIInputImageKey)
         filter.setValue(NCUBE, forKey: "inputCubeDimension")
         filter.setValue(cubeData, forKey: "inputCubeData")

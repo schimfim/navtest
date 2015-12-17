@@ -21,13 +21,14 @@ class FPalette: FColorCubeBasedFilter {
     }
     
     func updateCube() {
+    	let div = Float(NCUBE-1)
         for ib in 0..<NCUBE {
             for ig in 0..<NCUBE {
                 for ir in 0..<NCUBE {
                     let idx = (ir + ig * NCUBE + ib * NCUBE*NCUBE)
                     var mu = [Float](count: cents.count, repeatedValue: 0.0)
                     var idist = [Float](count: cents.count, repeatedValue: 0.0)
-                    let ci = cube![idx]
+                    let ci = RGB(Float(ir)/div, Float(ig)/div, Float(ib)/div)
                     var sd : Float = 0.0
                     // calc inverse distances
                     for ic in 0..<cents.count {
@@ -50,6 +51,7 @@ class FPalette: FColorCubeBasedFilter {
                 }
             }
         }
+        updateCubeData()
     }
     
     // MARK: NSCoding
