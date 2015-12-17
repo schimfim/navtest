@@ -11,16 +11,15 @@ import UIKit
 class FPalette: FColorCubeBasedFilter {
     
     var strength: Float = 2.0
-    let cents: [RGB]
+    var cents: [RGB]
     
     init(_ theName: String, cents:[RGB]) {
+        self.cents = cents
         super.init()
         self.name = theName
-        self.cents = cents
-        updateCube()
     }
     
-    func updateCube() {
+    override func updateCube() {
     	let div = Float(NCUBE-1)
         for ib in 0..<NCUBE {
             for ig in 0..<NCUBE {
@@ -47,11 +46,10 @@ class FPalette: FColorCubeBasedFilter {
                         newc.g += mu[i] * cents[i].g
                         newc.b += mu[i] * cents[i].b
                     }
-                    cube![idx] = newc
+                    cube[idx] = newc
                 }
             }
         }
-        updateCubeData()
     }
     
     // MARK: NSCoding

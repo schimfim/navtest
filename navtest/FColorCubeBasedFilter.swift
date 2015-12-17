@@ -62,27 +62,38 @@ class FColorCubeBasedFilter: Filter {
     
     var NCUBE: Int = 4
     var cubeLength: Int = 0
-    var cube: [RGB]?
+    var cube: [RGB] = []
     
     // data structure for CIFilter:cube3d
     var cubeData: NSData?
     
     var filter = CIFilter(name:"CIColorCube")!
     
-    init() {
+    override init() {
     	super.init()
     	setupEmptyCube()
-    }
-    
-    func setupEmptyCube() {
-        cubeLength = NCUBE * NCUBE * NCUBE
-        cube = [RGB](count:cubeLength!, repeatedValue:RGB(0,0,0))
+        updateCube()
         updateCubeData()
     }
     
-    func updateCubeData() {
+    func parameterChanged() {
+        updateCube()
+        updateCubeData()
+    }
+    
+    func updateCube() {
+        NSLog("Missing override of updateCube")
+    }
+    
+    private func setupEmptyCube() {
+        cubeLength = NCUBE * NCUBE * NCUBE
+        cube = [RGB](count:cubeLength, repeatedValue:RGB(0,0,0))
+        updateCubeData()
+    }
+    
+    private func updateCubeData() {
     	// TODO check nocopy option
-        cubeData = NSData(bytes: cube!, length: cubeLength! * sizeof(RGB))
+        cubeData = NSData(bytes: cube, length: cubeLength * sizeof(RGB))
     }
     
     override func process(inImage: CIImage) -> CIImage {
