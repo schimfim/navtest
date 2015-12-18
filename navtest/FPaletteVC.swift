@@ -18,17 +18,13 @@ class FPaletteVC: FilterEditorViewController {
     }
     
     // Gets called from FilterEditorViewController
-    override func setupFilterEditor() {
-        let filter =  self.editFilter as FPalette
-        strength.value = ((filter.strength)! - 0.5) / 3.5
-        filter.parameterChanged()
-        Filter.updateResultImageAsync()    	
+    override func setupFilterEditor(filter: Filter) {
+        filter = filter as FPalette
+        strength.value = (filter.strength - 0.5) / 3.5
     }
     
-    // gets called from FilterEditorViewController
-    override func updateParameters() {
-        let filter =  self.editFilter as FPalette
+    // Gets called from FilterEditorViewController
+    override func updateParameters(filter: FPalette) {
         filter.strength = strength.value * 3.5 + 0.5
-        Filter.updateResultImageAsync()
     }
 }
