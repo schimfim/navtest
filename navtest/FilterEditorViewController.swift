@@ -17,9 +17,19 @@ class FilterEditorViewController: UIViewController {
         super.viewDidLoad()
 
         // Fetch filter to edit from model
-        // TODO strange...
+        // TODO Clean up
         editFilter = Filter.filters[Filter.rowToEdit]
         filterName.text = editFilter.name
+        
+        // Call back to VC in charge
+        setupFilterEditor(editFilter)
+        parametersChanged()
+    }
+    
+    func parametersChanged() {
+    	// Call back to VC in charge
+    	updateParameters()
+    	editFilter.updateAndApplyAsync()
     }
 
 	/*
