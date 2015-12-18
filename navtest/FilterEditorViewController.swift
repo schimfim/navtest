@@ -32,11 +32,11 @@ class FilterEditorViewController: UIViewController {
     	// xxx editFilter.updateAndApplyAsync()
     }
     
-    func setupFilterEditor(filter: Filter) {
+    func setupFilterEditor<FilterType: Filter>(filter: FilterType) {
         NSLog("Missing override of setupFilterEditor")
     }
 
-    func updateParameters(filter: Filter) {
+    func updateParameters<FilterType: Filter>(filter: FilterType) {
         NSLog("Missing override of updateParameters")
     }
 
