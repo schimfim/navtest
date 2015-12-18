@@ -28,7 +28,7 @@ class FilterEditorViewController: UIViewController {
     
     func parametersChanged() {
     	// Call back to VC in charge
-    	updateParameters()
+    	updateParameters(editFilter)
     	editFilter.updateAndApplyAsync()
     }
 
