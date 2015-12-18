@@ -59,6 +59,7 @@ class Filter: NSObject {
         return newImage
     }
     
+    // TODO: make instance method
     static func updateResultImageAsync() {
     	NSLog("1 Entering update method")
         hud.start()

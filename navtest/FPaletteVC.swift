@@ -11,21 +11,17 @@ import UIKit
 class FPaletteVC: FilterEditorViewController {
 
     // associated filter
-    var filter: FPalette?
+    // TODO: put in superclass
+    var filter: FPalette!
     
     @IBOutlet var strength: UISlider!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(animated: Bool) {
         filter = self.editFilter as? FPalette
         strength.value = ((filter?.strength)! - 0.5) / 3.5
-        filter!.reset()
-        filter?.update()
+        filter.parameterChanged()
         Filter.updateResultImageAsync()
-        super.viewWillAppear(animated)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -33,10 +29,7 @@ class FPaletteVC: FilterEditorViewController {
     }
     
     @IBAction func updateStrength(sender: UISlider) {
-        filter?.strength = strength.value * 3.5 + 0.5
-        filter!.reset()
-        filter?.update()
+        filter.strength = strength.value * 3.5 + 0.5
         Filter.updateResultImageAsync()
-        Filter.saveFilters()
     }
 }
