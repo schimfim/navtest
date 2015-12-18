@@ -13,7 +13,7 @@ class FHueAdjust: Filter {
     var value: Float
     let filter = CIFilter(name: "CIHueAdjust")!
     
-    required init() {
+    required override init() {
         value = 0.0
         super.init()
     }

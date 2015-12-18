@@ -18,8 +18,7 @@ class FPaletteVC: FilterEditorViewController {
     }
     
     // Gets called from FilterEditorViewController
-    override func setupFilterEditor(filter: Filter) {
-        filter = filter as FPalette
+    override func setupFilterEditor(filter: FPalette) {
         strength.value = (filter.strength - 0.5) / 3.5
     }
     

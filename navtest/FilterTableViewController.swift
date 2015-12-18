@@ -32,13 +32,15 @@ class FilterTableViewController: UITableViewController {
     
     @IBOutlet var addButton: UIBarButtonItem!
     @IBAction func addAction(sender: AnyObject) {
-        NSLog("addAction")
+        NSLog("addAction not implemented")
+        /*
         Filter.addFilter("type")
         self.tableView.reloadData()
         Filter.rowToEdit = Filter.filters.count - 1
         Filter.setCurrentFilter(Filter.rowToEdit)
         Filter.saveFilters()
         performSegueWithIdentifier(Filter.segueIDforRowToEdit(), sender: self)
+        */
     }
 
     // MARK: - Table view data source
