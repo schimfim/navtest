@@ -17,13 +17,16 @@ class FilterEditorViewController: UIViewController {
         super.viewDidLoad()
 
         // Fetch filter to edit from model
+        // TODO strange...
         editFilter = Filter.filters[Filter.rowToEdit]
         filterName.text = editFilter.name
     }
 
+	/*
     func startEditingName(sender: UITextField) {
         NSLog("Start editing name")
         performSegueWithIdentifier("showNameEditor", sender: self)
     }
+    */
 
 }
