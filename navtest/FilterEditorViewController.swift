@@ -22,21 +22,21 @@ class FilterEditorViewController: UIViewController {
         filterName.text = editFilter.name
         
         // Call back to VC in charge
-        setupFilterEditor(editFilter)
+        setupFilterEditor()
         parametersChanged()
     }
     
     func parametersChanged() {
     	// Call back to VC in charge
-    	updateParameters(editFilter)
+    	updateParameters()
     	// xxx editFilter.updateAndApplyAsync()
     }
     
-    func setupFilterEditor(filter: Filter) {
+    func setupFilterEditor() {
         NSLog("Missing override of setupFilterEditor")
     }
 
-    func updateParameters(filter: Filter) {
+    func updateParameters() {
         NSLog("Missing override of updateParameters")
     }
 

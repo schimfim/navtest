@@ -11,6 +11,11 @@ import UIKit
 class FPaletteVC: FilterEditorViewController {
     
     @IBOutlet var strength: UISlider!
+    var filter: FPalette!
+    
+    override func viewDidLoad() {
+        filter = editFilter as! FPalette
+    }
     
     // All IBActions call parametersChanged
     @IBAction func updateStrength(sender: UISlider) {
@@ -18,12 +23,12 @@ class FPaletteVC: FilterEditorViewController {
     }
     
     // Gets called from FilterEditorViewController
-    override func setupFilterEditor(filter: FPalette) {
+    override func setupFilterEditor() {
         strength.value = (filter.strength - 0.5) / 3.5
     }
     
     // Gets called from FilterEditorViewController
-    override func updateParameters(filter: FPalette) {
+    override func updateParameters() {
         filter.strength = strength.value * 3.5 + 0.5
     }
 }
