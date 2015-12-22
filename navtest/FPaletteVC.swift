@@ -8,12 +8,14 @@
 
 import UIKit
 
-class FPaletteVC: FilterEditorViewController {
+class FPaletteVC: FilterEditorViewController, EditingEvents {
     
     @IBOutlet var strength: UISlider!
     var filter: FPalette!
     
     override func viewDidLoad() {
+    	setEditorVC(self) ???
+    	super.viewDidLoad()
         filter = editFilter as! FPalette
     }
     
@@ -23,12 +25,12 @@ class FPaletteVC: FilterEditorViewController {
     }
     
     // Gets called from FilterEditorViewController
-    override func setupFilterEditor() {
+    func setupFilterEditor() {
         strength.value = (filter.strength - 0.5) / 3.5
     }
     
     // Gets called from FilterEditorViewController
-    override func updateParameters() {
+    func updateParameters() {
         filter.strength = strength.value * 3.5 + 0.5
     }
 }

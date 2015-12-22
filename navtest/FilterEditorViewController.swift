@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol EditingEvents {
+	func setupFilterEditor()
+    func updateParameters()
+}
+
 class FilterEditorViewController: UIViewController {
 
     var editFilter: Filter!
@@ -22,24 +27,20 @@ class FilterEditorViewController: UIViewController {
         filterName.text = editFilter.name
         
         // Call back to VC in charge
-        setupFilterEditor()
+        evc.setupFilterEditor()
         parametersChanged()
+    }
+    
+    func setEditorVC(evc: EditingEvents) {
+    	self.evc = evc
     }
     
     func parametersChanged() {
     	// Call back to VC in charge
-    	updateParameters()
+    	evc.updateParameters()
     	// xxx editFilter.updateAndApplyAsync()
     }
     
-    func setupFilterEditor() {
-        NSLog("Missing override of setupFilterEditor")
-    }
-
-    func updateParameters() {
-        NSLog("Missing override of updateParameters")
-    }
-
 	/*
     func startEditingName(sender: UITextField) {
         NSLog("Start editing name")
