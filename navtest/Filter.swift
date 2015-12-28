@@ -131,4 +131,9 @@ class Filter: NSObject {
         NSLog("Missing override of process in filter name %@", name)
         return inImage
     }
+    
+    func parameterChanged() {
+        NSLog("Missing override of parameterChanged in filter name %@", name)
+    }
+    
 }

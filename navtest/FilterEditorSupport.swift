@@ -9,7 +9,6 @@
 import UIKit
 
 protocol EditingEvents {
-    typealias FilterType
     func setupFilterEditor()
     func updateParameters()
 }
@@ -34,6 +33,7 @@ class FilterEditorSupport<T: Filter> {
     func parametersChanged() {
     	// Call back to VC in charge
         evc.updateParameters()
+        editFilter.parameterChanged()
         Filter.updateResultImageAsync()
     	// xxx editFilter.updateAndApplyAsync()
     }

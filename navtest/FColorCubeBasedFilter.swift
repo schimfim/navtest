@@ -76,7 +76,7 @@ class FColorCubeBasedFilter: Filter {
         updateCubeData()
     }
     
-    func parameterChanged() {
+    override func parameterChanged() {
         updateCube()
         updateCubeData()
     }

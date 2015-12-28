@@ -8,16 +8,14 @@
 
 import UIKit
 
-class FPaletteVC: UIViewController, EditingEvents {
-    // Defines which filter type is edited here
+class FPaletteVC: EditorVC, EditingEvents {
     var supp: FilterEditorSupport<FPalette>!
     
     @IBOutlet var strength: UISlider!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        supp = FilterEditorSupport(self)
-        supp.setupSupport()
+        supp = FilterEditorSupport<FPalette>(self)
     }
     
     // All IBActions call parametersChanged

@@ -10,6 +10,7 @@
 		775418001BF8E04000C122F5 /* FColorCubeBasedFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775417FF1BF8E04000C122F5 /* FColorCubeBasedFilter.swift */; };
 		775418021BF8E87900C122F5 /* FPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775418011BF8E87900C122F5 /* FPalette.swift */; };
 		775418041BF912E800C122F5 /* FPaletteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775418031BF912E800C122F5 /* FPaletteVC.swift */; };
+		775F6BF01C31C09500AE0A3E /* EditorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775F6BEF1C31C09500AE0A3E /* EditorVC.swift */; };
 		7770ABB31BDAD2F600630053 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7770ABB21BDAD2F600630053 /* AppDelegate.swift */; };
 		7770ABB51BDAD2F600630053 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7770ABB41BDAD2F600630053 /* ViewController.swift */; };
 		7770ABB81BDAD2F600630053 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7770ABB61BDAD2F600630053 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 		775417FF1BF8E04000C122F5 /* FColorCubeBasedFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FColorCubeBasedFilter.swift; sourceTree = "<group>"; };
 		775418011BF8E87900C122F5 /* FPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPalette.swift; sourceTree = "<group>"; };
 		775418031BF912E800C122F5 /* FPaletteVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPaletteVC.swift; sourceTree = "<group>"; };
+		775F6BEF1C31C09500AE0A3E /* EditorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorVC.swift; sourceTree = "<group>"; };
 		7770ABAF1BDAD2F600630053 /* navtest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = navtest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7770ABB21BDAD2F600630053 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7770ABB41BDAD2F600630053 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				778D38E31C09CBA30040D790 /* HUD */,
 				777E780D1BF3EE7F009864B7 /* Filters */,
 				7770ABB61BDAD2F600630053 /* Main.storyboard */,
+				775F6BEF1C31C09500AE0A3E /* EditorVC.swift */,
 				7770ABB41BDAD2F600630053 /* ViewController.swift */,
 				77F21F361BDC5151002BF476 /* FilterTableViewController.swift */,
 				7776748F1BE2D297005F5CB4 /* FilterEditorSupport.swift */,
@@ -190,6 +193,7 @@
 				778D38E51C09CBE90040D790 /* HUDView.swift in Sources */,
 				777674901BE2D297005F5CB4 /* FilterEditorSupport.swift in Sources */,
 				7770ABB31BDAD2F600630053 /* AppDelegate.swift in Sources */,
+				775F6BF01C31C09500AE0A3E /* EditorVC.swift in Sources */,
 				77BDD6301C18D23E00E7CCD4 /* PresetProvider.swift in Sources */,
 				775418001BF8E04000C122F5 /* FColorCubeBasedFilter.swift in Sources */,
 				775418021BF8E87900C122F5 /* FPalette.swift in Sources */,

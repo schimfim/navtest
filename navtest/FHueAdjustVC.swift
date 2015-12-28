@@ -8,14 +8,14 @@
 
 import UIKit
 
-class FHueAdjustVC: UIViewController, EditingEvents {
+class FHueAdjustVC: EditorVC, EditingEvents {
     var supp: FilterEditorSupport<FHueAdjust>!
     
     @IBOutlet var value: UISlider!
     
     override func viewDidLoad() {
-        supp = FilterEditorSupport(self)
         super.viewDidLoad()
+        supp = FilterEditorSupport(self)
     }
     
     @IBAction func updateValue(sender: UISlider) {
