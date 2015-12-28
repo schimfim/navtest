@@ -8,23 +8,28 @@
 
 import UIKit
 
-class FHueAdjustVC: FilterEditorViewController {
-    
-    // associated filter
-    var filter: FHueAdjust?
+class FHueAdjustVC: UIViewController, EditingEvents {
+    var supp: FilterEditorSupport<FHueAdjust>!
     
     @IBOutlet var value: UISlider!
     
     override func viewDidLoad() {
+        supp = FilterEditorSupport(self)
         super.viewDidLoad()
-        filter = self.editFilter as? FHueAdjust
-
-        value.value = filter!.value / (2 * 3.14)
     }
     
     @IBAction func updateValue(sender: UISlider) {
-        filter!.value = sender.value * 2 * 3.14
-        Filter.updateResultImage() // is this clean??
+        supp.parametersChanged()
+    }
+    
+    // Gets called from FilterEditorViewController
+    func setupFilterEditor() {
+        value.value = supp.editFilter.value / (2 * 3.14)
+    }
+
+    // Gets called from FilterEditorViewController
+    func updateParameters() {
+        supp.editFilter.value = value.value * 2 * 3.14
     }
 
 }

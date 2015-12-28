@@ -8,29 +8,30 @@
 
 import UIKit
 
-class FPaletteVC: FilterEditorViewController, EditingEvents {
+class FPaletteVC: UIViewController, EditingEvents {
+    // Defines which filter type is edited here
+    var supp: FilterEditorSupport<FPalette>!
     
     @IBOutlet var strength: UISlider!
-    var filter: FPalette!
     
     override func viewDidLoad() {
-    	setEditorVC(self) ???
-    	super.viewDidLoad()
-        filter = editFilter as! FPalette
+        super.viewDidLoad()
+        supp = FilterEditorSupport(self)
+        supp.setupSupport()
     }
     
     // All IBActions call parametersChanged
     @IBAction func updateStrength(sender: UISlider) {
-        parametersChanged()
+        supp.parametersChanged()
     }
     
     // Gets called from FilterEditorViewController
     func setupFilterEditor() {
-        strength.value = (filter.strength - 0.5) / 3.5
+        strength.value = (supp.editFilter.strength - 0.5) / 3.5
     }
     
     // Gets called from FilterEditorViewController
     func updateParameters() {
-        filter.strength = strength.value * 3.5 + 0.5
+        supp.editFilter.strength = strength.value * 3.5 + 0.5
     }
 }

@@ -9,35 +9,32 @@
 import UIKit
 
 protocol EditingEvents {
-	func setupFilterEditor()
+    typealias FilterType
+    func setupFilterEditor()
     func updateParameters()
 }
 
-class FilterEditorViewController: UIViewController {
+class FilterEditorSupport<T: Filter> {
 
-    var editFilter: Filter!
-    @IBOutlet var filterName: UILabel!
+    var editFilter: T
+    var evc: EditingEvents
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    init(_ evc: EditingEvents) {
         // Fetch filter to edit from model
-        // TODO Clean up
-        editFilter = Filter.filters[Filter.rowToEdit]
-        filterName.text = editFilter.name
-        
+        editFilter = Filter.filters[Filter.rowToEdit] as! T
+        self.evc = evc
+    }
+    
+    func setupSupport() {
         // Call back to VC in charge
         evc.setupFilterEditor()
         parametersChanged()
     }
     
-    func setEditorVC(evc: EditingEvents) {
-    	self.evc = evc
-    }
-    
     func parametersChanged() {
     	// Call back to VC in charge
-    	evc.updateParameters()
+        evc.updateParameters()
+        Filter.updateResultImageAsync()
     	// xxx editFilter.updateAndApplyAsync()
     }
     
