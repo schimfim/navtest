@@ -11,10 +11,18 @@ class PresetProvider {
 
 	static func defaultFilters() -> [Filter] {
         return [
-            FPalette("P01", cents: [white_c, black_c, red_c, yellow_c, green_c, cyan_c, blue_c, magenta_c]),
-            FPalette("P02", cents: [black_c, white_c, yellow_c, cyan_c]),
-            FPalette("P03", cents: [black_c, red_c, green_c, blue_c]),
-            FPalette("P04", cents: [white_c, black_c, blue_c])
+            FPalette("F000 Neutral", cents: [white_c, black_c, red_c, yellow_c, green_c, cyan_c, blue_c, magenta_c]),
+            FPalette("F001 Darken blue", cents: [white_c, black_c, red_c, yellow_c, green_c, cyan_c, RGB(h:2/3,s:1,v:0), magenta_c]),
+            FPalette("F002 Desat red", cents: [white_c, black_c, RGB(h:0,s:0.5,v:1), yellow_c, green_c, cyan_c, blue_c, magenta_c]),
+            FPalette("F003 Shift green to red", cents: [white_c, black_c, red_c, yellow_c, RGB(h:0,s:1,v:1), cyan_c, blue_c, magenta_c]),
+            FPalette("F004 Blue shadows", cents: [white_c, RGB(h:2/3,s:1,v:0.7), red_c, yellow_c, green_c, cyan_c, blue_c, magenta_c]),
+
+            FPalette("F005 Yellow turq", cents: [black_c, white_c, yellow_c, cyan_c]),
+            FPalette("F006 RGB", cents: [black_c, red_c, green_c, blue_c]),
+            FPalette("F007 wBb", cents: [white_c, black_c, blue_c]),
+            FPalette("F008 Shades of red", cents: [white_c, black_c, red_c]),
+            FPalette("F009 Singular blue", cents: [cyan_c, blue_c]),
+            FPalette("F010 sat blu", cents: [white_c, black_c, red_c, yellow_c, green_c, blue_c, blue_c, blue_c])
         ]
     }
 }
