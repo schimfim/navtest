@@ -21,7 +21,7 @@ struct RGB {
         b = nb
     }
     
-    init(h:Float, s:Float, v:Float) {
+    init(h:Float, s:Float = 1, v:Float = 1) {
         // convert to rgb
         let color = UIColor(hue: CGFloat(h), saturation: CGFloat(s), brightness: CGFloat(v), alpha: CGFloat(1.0))
         var nr : CGFloat = 0.0
@@ -60,7 +60,7 @@ class RGBstore: NSObject, NSCoding {
 
 class FColorCubeBasedFilter: Filter {
     
-    var NCUBE: Int = 4
+    var NCUBE: Int = 2
     var cubeLength: Int = 0
     var cube: [RGB] = []
     
