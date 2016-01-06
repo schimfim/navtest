@@ -315,7 +315,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Btg-sb-gDE">
-                                <rect key="frame" x="28" y="8" width="544" height="51"/>
+                                <rect key="frame" x="28" y="8" width="544" height="81"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fX5-Or-N5q">
                                         <rect key="frame" x="0.0" y="0.0" width="544" height="21"/>
@@ -352,7 +352,27 @@
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEa-kD-Uiy">
                                                 <rect key="frame" x="86" y="0.0" width="460" height="31"/>
                                                 <connections>
-                                                    <action selector="updateStrength:" destination="f5A-lz-dtA" eventType="valueChanged" id="3VA-A5-slN"/>
+                                                    <action selector="updateParameters:" destination="f5A-lz-dtA" eventType="valueChanged" id="Obi-hl-stt"/>
+                                                </connections>
+                                            </slider>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bna-Bw-3qm">
+                                        <rect key="frame" x="0.0" y="51" width="544" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radius" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Zz-W5-KW6">
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="JSH-rU-m0A"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ca-Ec-oPw">
+                                                <rect key="frame" x="86" y="0.0" width="460" height="31"/>
+                                                <connections>
+                                                    <action selector="updateParameters:" destination="f5A-lz-dtA" eventType="valueChanged" id="dzj-a3-uAo"/>
                                                 </connections>
                                             </slider>
                                         </subviews>
@@ -370,6 +390,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="200"/>
                     <connections>
+                        <outlet property="radius" destination="2ca-Ec-oPw" id="QB9-vQ-6Mq"/>
                         <outlet property="strength" destination="VEa-kD-Uiy" id="RdW-PT-1Wo"/>
                     </connections>
                 </viewController>

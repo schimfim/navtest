@@ -60,7 +60,7 @@ class RGBstore: NSObject, NSCoding {
 
 class FColorCubeBasedFilter: Filter {
     
-    var NCUBE: Int = 2
+    var NCUBE: Int = 4
     var cubeLength: Int = 0
     var cube: [RGB] = []
     

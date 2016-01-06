@@ -11,6 +11,7 @@ import UIKit
 class FPalette: FColorCubeBasedFilter {
     
     var strength: Float = 2.0
+    var origDist: Float = 0.5 // default distance to original color
     var cents: [RGB]
     
     init(_ theName: String, cents:[RGB]) {
@@ -28,7 +29,7 @@ class FPalette: FColorCubeBasedFilter {
                     var mu = [Float](count: cents.count, repeatedValue: 0.0)
                     var idist = [Float](count: cents.count, repeatedValue: 0.0)
                     let ci = RGB(Float(ir)/div, Float(ig)/div, Float(ib)/div)
-                    var sd : Float = 0.0
+                    var sd : Float = 1 / origDist // sum of inverse distances, including default distance to original color
                     // calc inverse distances
                     for ic in 0..<cents.count {
                         let c = cents[ic]
@@ -39,6 +40,8 @@ class FPalette: FColorCubeBasedFilter {
                     for i in 0..<cents.count {
                         mu[i] = powf(idist[i], strength) / sd
                     }
+                    // membership for original color
+                    let muOrig = powf(1 / origDist , strength) / sd
                     // reconstruct
                     var newc = RGB(0,0,0)
                     for i in 0..<cents.count {
@@ -46,6 +49,11 @@ class FPalette: FColorCubeBasedFilter {
                         newc.g += mu[i] * cents[i].g
                         newc.b += mu[i] * cents[i].b
                     }
+                    // mix in original color
+                    newc.r += muOrig * ci.r
+                    newc.g += muOrig * ci.g
+                    newc.b += muOrig * ci.b
+
                     cube[idx] = newc
                 }
             }

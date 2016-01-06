@@ -12,6 +12,7 @@ class FPaletteVC: EditorVC, EditingEvents {
     var supp: FilterEditorSupport<FPalette>!
     
     @IBOutlet var strength: UISlider!
+    @IBOutlet var radius: UISlider!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,17 +20,19 @@ class FPaletteVC: EditorVC, EditingEvents {
     }
     
     // All IBActions call parametersChanged
-    @IBAction func updateStrength(sender: UISlider) {
+    @IBAction func updateParameters(sender: UISlider) {
         supp.parametersChanged()
     }
     
     // Gets called from FilterEditorViewController
     func setupFilterEditor() {
-        strength.value = (supp.editFilter.strength - 0.5) / 3.5
+        strength.value = sqrtf((supp.editFilter.strength - 1.0) / 5.0)
+        radius.value = sqrtf((supp.editFilter.origDist - 0.0) / 1.0)
     }
     
     // Gets called from FilterEditorViewController
     func updateParameters() {
-        supp.editFilter.strength = strength.value * 3.5 + 0.5
+        supp.editFilter.strength = powf(strength.value, 2.0) * 5.0 + 1.0
+        supp.editFilter.origDist = powf(radius.value, 2.0) * 1.0 + 0.0
     }
 }
