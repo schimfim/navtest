@@ -29,7 +29,7 @@ class FPalette: FColorCubeBasedFilter {
                     var mu = [Float](count: cents.count, repeatedValue: 0.0)
                     var idist = [Float](count: cents.count, repeatedValue: 0.0)
                     let ci = RGB(Float(ir)/div, Float(ig)/div, Float(ib)/div)
-                    var sd : Float = 1 / origDist // sum of inverse distances, including default distance to original color
+                    var sd : Float = powf(1 / origDist, strength) // sum of inverse distances, including default distance to original color
                     // calc inverse distances
                     for ic in 0..<cents.count {
                         let c = cents[ic]
