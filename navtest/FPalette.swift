@@ -30,20 +30,20 @@ class FPalette: FColorCubeBasedFilter {
                     var idist = [Float](count: cents.count, repeatedValue: 0.0)
                     let ci = RGB(Float(ir)/div, Float(ig)/div, Float(ib)/div)
                     let dist0 = max(origDist, 0.00001)
-                    var sd : Float = powf(1 / dist0, strength) // sum of inverse distances, including default distance to original color
+                    var sd : Float = powf(1 / dist0, strength*1.73) // sum of inverse distances, including default distance to original color
                     // calc inverse distances
                     for ic in 0..<cents.count {
                         let c = cents[ic]
                         let d = max(powf(ci.r-c.r,2) + powf(ci.g-c.g,2) + powf(ci.b-c.b,2), 0.00001) / 3
                         idist[ic] = 1 / sqrt(d)
-                        sd = sd + powf(idist[ic], strength)
+                        sd = sd + powf(idist[ic], strength*1.73)
                     }
                     // calc membership
                     for i in 0..<cents.count {
-                        mu[i] = powf(idist[i], strength) / sd
+                        mu[i] = powf(idist[i], strength*1.73) / sd
                     }
                     // membership for original color
-                    let muOrig = powf(1 / dist0 , strength) / sd
+                    let muOrig = powf(1 / dist0 , strength*1.73) / sd
                     // reconstruct
                     var newc = RGB(0,0,0)
                     for i in 0..<cents.count {

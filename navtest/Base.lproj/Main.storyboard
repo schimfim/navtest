@@ -315,10 +315,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Btg-sb-gDE">
-                                <rect key="frame" x="28" y="8" width="544" height="81"/>
+                                <rect key="frame" x="36" y="8" width="528" height="81"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fX5-Or-N5q">
-                                        <rect key="frame" x="0.0" y="0.0" width="544" height="21"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="528" height="21"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKa-sw-GNn">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="21"/>
@@ -330,7 +330,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;fiterName&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lg8-0E-i3d">
-                                                <rect key="frame" x="80" y="0.0" width="464" height="21"/>
+                                                <rect key="frame" x="80" y="0.0" width="448" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -338,7 +338,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pHP-Nc-1hQ">
-                                        <rect key="frame" x="0.0" y="21" width="544" height="30"/>
+                                        <rect key="frame" x="0.0" y="21" width="528" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strength" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oln-J6-abv">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="30"/>
@@ -350,7 +350,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEa-kD-Uiy">
-                                                <rect key="frame" x="86" y="0.0" width="460" height="31"/>
+                                                <rect key="frame" x="86" y="0.0" width="444" height="31"/>
                                                 <connections>
                                                     <action selector="updateParameters:" destination="f5A-lz-dtA" eventType="valueChanged" id="Obi-hl-stt"/>
                                                 </connections>
@@ -358,7 +358,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bna-Bw-3qm">
-                                        <rect key="frame" x="0.0" y="51" width="544" height="30"/>
+                                        <rect key="frame" x="0.0" y="51" width="528" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radius" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Zz-W5-KW6">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="30"/>
@@ -370,7 +370,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ca-Ec-oPw">
-                                                <rect key="frame" x="86" y="0.0" width="460" height="31"/>
+                                                <rect key="frame" x="86" y="0.0" width="444" height="31"/>
                                                 <connections>
                                                     <action selector="updateParameters:" destination="f5A-lz-dtA" eventType="valueChanged" id="dzj-a3-uAo"/>
                                                 </connections>
@@ -381,8 +381,8 @@
                             </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="Btg-sb-gDE" secondAttribute="trailing" constant="8" id="4Te-zo-YWH"/>
-                            <constraint firstItem="Btg-sb-gDE" firstAttribute="leading" secondItem="Rji-iV-nTf" secondAttribute="leadingMargin" constant="8" id="iVd-7V-YiN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Btg-sb-gDE" secondAttribute="trailing" constant="16" id="4Te-zo-YWH"/>
+                            <constraint firstItem="Btg-sb-gDE" firstAttribute="leading" secondItem="Rji-iV-nTf" secondAttribute="leadingMargin" constant="16" id="iVd-7V-YiN"/>
                             <constraint firstItem="Btg-sb-gDE" firstAttribute="top" secondItem="VSp-oW-fyW" secondAttribute="bottom" constant="8" id="pe8-Kw-cZd"/>
                         </constraints>
                     </view>
